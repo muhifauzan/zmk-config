@@ -41,7 +41,7 @@
         hrm_li: home_row_mod_left_index {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "hold-preffered";
+            flavor = "hold-preferred";
             require-prior-idle-ms = <175>;
             tapping-term-ms = <285>;
             quick-tap-ms = <175>;
@@ -65,7 +65,7 @@
         hrm_ri: home_row_mod_right_index {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "hold-preffered";
+            flavor = "hold-preferred";
             require-prior-idle-ms = <175>;
             tapping-term-ms = <285>;
             quick-tap-ms = <175>;
@@ -79,7 +79,7 @@
         ht_ltl: hold_tap_layer_tap_left {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "hold-preffered";
+            flavor = "hold-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <175>;
             bindings = <&mo>, <&kp>;
@@ -88,7 +88,7 @@
         ht_ltr: hold_tap_layer_tap_right {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "hold-preffered";
+            flavor = "hold-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <175>;
             bindings = <&mo>, <&kp>;
