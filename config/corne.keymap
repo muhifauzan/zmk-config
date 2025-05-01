@@ -221,14 +221,14 @@
         symbol_layer {
             display-name = "Symbol";
 // -----------------------------------------------------------------------------------
-// |   |  |  =  |  <  |  [  |  ]  |  >  |       |  $  |  -  |  +  |  /  |  *  | ___  |
+// |   |  |  =  |  <  |  [  |  ]  |  >  |       |  `  |  -  |  +  |  /  |  *  | ___  |
 // |   "  |  _  |  {  |  (  |  )  |  }  |       |  !  |  ?  |  '  |  ^  |  \  | ___  |
-// |   ~  |  @  |  :  |  &  |  %  |  #  |       |  ;  |  `  | ___ | ___ | ___ | ___  |
+// |   ~  |  @  |  :  |  &  |  %  |  #  |       |  ;  |  $  | ___ | ___ | ___ | ___  |
 //                    | ___ | ___ | ___ |       | ___ | ___ | ___ |
             bindings = <
-    &kp PIPE               &kp EQUAL              &kp LESS_THAN          &kp LEFT_BRACKET       &kp RIGHT_BRACKET      &kp GREATER_THAN                 &kp DOLLAR             &kp MINUS              &kp PLUS               &kp SLASH              &kp ASTERISK           &trans
+    &kp PIPE               &kp EQUAL              &kp LESS_THAN          &kp LEFT_BRACKET       &kp RIGHT_BRACKET      &kp GREATER_THAN                 &kp GRAVE              &kp MINUS              &kp PLUS               &kp SLASH              &kp ASTERISK           &trans
     &kp DOUBLE_QUOTES      &kp UNDERSCORE         &kp LEFT_BRACE         &kp LEFT_PARENTHESIS   &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACE                  &kp EXCLAMATION        &kp QUESTION           &kp SINGLE_QUOTE       &kp CARET              &kp BACKSLASH          &trans
-    &kp TILDE              &kp AT_SIGN            &kp COLON              &kp AMPERSAND          &kp PERCENT            &kp HASH                         &kp SEMICOLON          &kp GRAVE              &trans                 &trans                 &trans                 &trans
+    &kp TILDE              &kp AT_SIGN            &kp COLON              &kp AMPERSAND          &kp PERCENT            &kp HASH                         &kp SEMICOLON          &kp DOLLAR             &trans                 &trans                 &trans                 &trans
                                                                          &trans                 &trans                 &trans                           &trans                 &trans                 &trans
             >;
         };
