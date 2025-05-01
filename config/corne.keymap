@@ -121,22 +121,22 @@
 
 
 
-/ {
-    combos {
-        compatible = "zmk,combos";
-        combo_sysutils_layer {
-            timeout-ms = <175>;
-            key-positions = <37 40>;
-            bindings = <&mo 8>;
-        };
-
-        combo_system_layer {
-            timeout-ms = <175>;
-            key-positions = <36 41>;
-            bindings = <&mo 9>;
-        };
-    };
-};
+// / {
+//     combos {
+//         compatible = "zmk,combos";
+//         combo_sysutils_layer {
+//             timeout-ms = <175>;
+//             key-positions = <37 40>;
+//             bindings = <&mo 8>;
+//         };
+//
+//         combo_system_layer {
+//             timeout-ms = <175>;
+//             key-positions = <36 41>;
+//             bindings = <&mo 9>;
+//         };
+//     };
+// };
 
 
 
@@ -317,22 +317,22 @@
 
 
 
-// / {
-//     conditional_layers {
-//         compatible = "zmk,conditional-layers";
-//         sysutils_layer {
-//             if-layers = <1 2>;
-//             then-layer = <8>;
-//         };
-//
-//         system_layer {
-//             if-layers = <3 4>;
-//             then-layer = <9>;
-//         };
-//
-//         sandbox_layer {
-//             if-layers = <1 4>;
-//             then-layer = <10>;
-//         };
-//     };
-// };
+/ {
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+        sysutils_layer {
+            if-layers = <1 2>;
+            then-layer = <8>;
+        };
+
+        system_layer {
+            if-layers = <3 4>;
+            then-layer = <9>;
+        };
+
+        sandbox_layer {
+            if-layers = <1 4>;
+            then-layer = <10>;
+        };
+    };
+};
