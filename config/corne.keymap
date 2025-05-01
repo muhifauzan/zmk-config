@@ -109,12 +109,12 @@
 // -----------------------------------------------------------------------------------
 // |  TAB |  Q  |  W  |  E  |  R  |  T  |       |  Y  |  U  |  I  |  O  |  P  |  -   |
 // |  CAP |  A  |  S  |  D  |  F  |  G  |       |  H  |  J  |  K  |  L  |  ;  |  '   |
-// |  SFT |  Z  |  X  |  C  |  V  |  B  |       |  N  |  M  |  ,  |  .  |  /  | SFT  |
+// |  SFT |  Z  |  X  |  C  |  V  |  B  |       |  N  |  M  |  ,  |  .  |  /  | ESC  |
 //                    | ML3 | ML1 | SPC |       | RET | ML2 | ML4 |
             bindings = <
     &kp TAB                &kp Q                  &kp W                  &kp E                  &kp R                  &kp T                            &kp Y                  &kp U                  &kp I                  &kp O                  &kp P                  &kp MINUS
     &caps_word             &hml LGUI A            &hml LALT S            &hml LCTRL D           &hml LSHFT F           &kp G                            &kp H                  &hmr RSHFT J           &hmr RCTRL K           &hmr RALT L            &hmr RGUI SEMICOLON    &kp SINGLE_QUOTE
-    &sk LEFT_SHIFT         &kp Z                  &kp X                  &kp C                  &kp V                  &kp B                            &kp N                  &kp M                  &kp COMMA              &kp PERIOD             &kp SLASH              &sk RIGHT_SHIFT
+    &sk LEFT_SHIFT         &kp Z                  &kp X                  &kp C                  &kp V                  &kp B                            &kp N                  &kp M                  &kp COMMA              &kp PERIOD             &kp SLASH              &kp ESCAPE
                                                                          &td_l3_l3_l7           &td_l1_l6              &ht_ltl 5 SPACE                  &ht_ltr 5 RETURN       &mo 2                  &td_l4_l4_l7
             >;
         };
@@ -137,12 +137,12 @@
         symbol_layer {
             display-name = "Symbol";
 // -----------------------------------------------------------------------------------
-// |   |  |  =  |  <  |  [  |  ]  |  >  |       |  $  |  +  |  -  |  *  |  /  | ___  |
+// |   |  |  =  |  <  |  [  |  ]  |  >  |       |  $  |  -  |  +  |  /  |  *  | ___  |
 // |   "  |  _  |  {  |  (  |  )  |  }  |       |  !  |  ?  |  '  |  ^  |  \  | ___  |
 // |   ~  |  @  |  :  |  &  |  %  |  #  |       |  ;  |  `  | ___ | ___ | ___ | ___  |
 //                    | ___ | ___ | ___ |       | ___ | ___ | ___ |
             bindings = <
-    &kp PIPE               &kp EQUAL              &kp LESS_THAN          &kp LEFT_BRACKET       &kp RIGHT_BRACKET      &kp GREATER_THAN                 &kp DOLLAR             &kp PLUS               &kp MINUS              &kp ASTERISK           &kp SLASH              &trans
+    &kp PIPE               &kp EQUAL              &kp LESS_THAN          &kp LEFT_BRACKET       &kp RIGHT_BRACKET      &kp GREATER_THAN                 &kp DOLLAR             &kp MINUS              &kp PLUS               &kp SLASH              &kp ASTERISK           &trans
     &kp DOUBLE_QUOTES      &kp UNDERSCORE         &kp LEFT_BRACE         &kp LEFT_PARENTHESIS   &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACE                  &kp EXCLAMATION        &kp QUESTION           &kp SINGLE_QUOTE       &kp CARET              &kp BACKSLASH          &trans
     &kp TILDE              &kp AT_SIGN            &kp COLON              &kp AMPERSAND          &kp PERCENT            &kp HASH                         &kp SEMICOLON          &kp GRAVE              &trans                 &trans                 &trans                 &trans
                                                                          &trans                 &trans                 &trans                           &trans                 &trans                 &trans
@@ -153,13 +153,13 @@
             display-name = "Nav";
 // -----------------------------------------------------------------------------------
 // |  ___ | ___ | ___ | ___ | ___ | ___ |       | HOM | PDN | PUP | END | ___ | CMN  |
-// |  ESC | GUI | ALT | CTL | SFT | ___ |       |  ←  |  ↓  |  ↑  |  →  | GUI | ESC  |
-// |  ___ | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ___  |
+// |  ___ | GUI | ALT | CTL | SFT | ___ |       |  ←  |  ↓  |  ↑  |  →  | GUI | ___  |
+// |  ESC | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ESC  |
 //                    | ___ | ___ | ___ |       | ___ | ___ | ___ |
             bindings = <
     &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &kp HOME               &kp PAGE_DOWN          &kp PAGE_UP            &kp END                &trans                 &kp K_CONTEXT_MENU
-    &kp ESCAPE             &kp LEFT_GUI           &kp LEFT_ALT           &kp LEFT_CONTROL       &kp LEFT_SHIFT         &trans                           &kp LEFT               &kp DOWN               &kp UP                 &kp RIGHT              &kp RIGHT_GUI          &kp ESCAPE
-    &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
+    &trans                 &kp LEFT_GUI           &kp LEFT_ALT           &kp LEFT_CONTROL       &kp LEFT_SHIFT         &trans                           &kp LEFT               &kp DOWN               &kp UP                 &kp RIGHT              &kp RIGHT_GUI          &trans
+    &kp ESCAPE             &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &kp ESCAPE
                                                                          &trans                 &trans                 &trans                           &trans                 &trans                 &trans
             >;
         };
@@ -183,13 +183,13 @@
             display-name = "Edit";
 // -----------------------------------------------------------------------------------
 // |  ___ | ___ | ___ | ___ | ___ | ___ |       | UND | ___ | ___ | RED | ___ | ___  |
-// |  ESC | GUI | ALT | CTL | SFT | DEL |       | BSP | INS | TAB | DEL | GUI | ESC  |
-// |  ___ | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ___  |
+// |  ___ | GUI | ALT | CTL | SFT | DEL |       | BSP | INS | TAB | DEL | GUI | ___  |
+// |  ESC | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ESC  |
 //                    | ___ | ___ | ___ |       | ___ | ___ | ___ |
             bindings = <
     &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &kp RC(Z)              &trans                 &trans                 &kp LC(Y)              &trans                 &trans
-    &kp ESCAPE             &kp LEFT_GUI           &kp LEFT_ALT           &kp LEFT_CONTROL       &kp LEFT_SHIFT         &kp DELETE                       &kp BACKSPACE          &kp INSERT             &kp TAB                &kp DELETE             &kp RIGHT_GUI          &kp ESCAPE
-    &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
+    &trans                 &kp LEFT_GUI           &kp LEFT_ALT           &kp LEFT_CONTROL       &kp LEFT_SHIFT         &kp DELETE                       &kp BACKSPACE          &kp INSERT             &kp TAB                &kp DELETE             &kp RIGHT_GUI          &trans
+    &kp ESCAPE             &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &kp ESCAPE
                                                                          &trans                 &trans                 &trans                           &trans                 &trans                 &trans
             >;
         };
