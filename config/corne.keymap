@@ -31,7 +31,7 @@
             #binding-cells = <2>;
             flavor = "balanced";
             require-prior-idle-ms = <175>;
-            tapping-term-ms = <285>;
+            tapping-term-ms = <275>;
             quick-tap-ms = <175>;
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <RIGHT_HAND>;
@@ -43,7 +43,7 @@
             #binding-cells = <2>;
             flavor = "hold-preferred";
             require-prior-idle-ms = <175>;
-            tapping-term-ms = <285>;
+            tapping-term-ms = <275>;
             quick-tap-ms = <175>;
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <RIGHT_HAND>;
@@ -55,7 +55,7 @@
             #binding-cells = <2>;
             flavor = "balanced";
             require-prior-idle-ms = <175>;
-            tapping-term-ms = <285>;
+            tapping-term-ms = <275>;
             quick-tap-ms = <175>;
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <LEFT_HAND>;
@@ -67,7 +67,7 @@
             #binding-cells = <2>;
             flavor = "hold-preferred";
             require-prior-idle-ms = <175>;
-            tapping-term-ms = <285>;
+            tapping-term-ms = <275>;
             quick-tap-ms = <175>;
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <LEFT_HAND>;
@@ -80,7 +80,7 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "hold-preferred";
-            tapping-term-ms = <200>;
+            tapping-term-ms = <205>;
             quick-tap-ms = <175>;
             bindings = <&mo>, <&kp>;
         };
@@ -89,79 +89,31 @@
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "hold-preferred";
-            tapping-term-ms = <200>;
+            tapping-term-ms = <205>;
             quick-tap-ms = <175>;
             bindings = <&mo>, <&kp>;
         };
 
 
-
-        hml: home_row_mod_left_old {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            require-prior-idle-ms = <125>;
-            tapping-term-ms = <285>;
-            quick-tap-ms = <175>;
-            bindings = <&kp>, <&kp>;
-            hold-trigger-key-positions = <RIGHT_HAND>;
-            hold-trigger-on-release;
-        };
-
-        hmr: home_row_mod_right_old {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            require-prior-idle-ms = <125>;
-            tapping-term-ms = <285>;
-            quick-tap-ms = <175>;
-            bindings = <&kp>, <&kp>;
-            hold-trigger-key-positions = <LEFT_HAND>;
-            hold-trigger-on-release;
-        };
-
-        ht_lt_l: hold_tap_layer_tap_left_old {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            require-prior-idle-ms = <125>;
-            tapping-term-ms = <285>;
-            quick-tap-ms = <175>;
-            bindings = <&mo>, <&kp>;
-            hold-trigger-key-positions = <RIGHT_HAND>;
-            hold-trigger-on-release;
-        };
-
-        ht_lt_r: hold_tap_layer_tap_right_old {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            require-prior-idle-ms = <125>;
-            tapping-term-ms = <285>;
-            quick-tap-ms = <175>;
-            bindings = <&mo>, <&kp>;
-            hold-trigger-key-positions = <LEFT_HAND>;
-            hold-trigger-on-release;
-        };
 
         td_l1_l6: tap_dance_l1_l6 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <195>;
+            tapping-term-ms = <205>;
             bindings = <&mo 1>, <&mo 6>;
         };
 
         td_l3_l3_l7: tap_dance_l3_l3_l7 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <195>;
+            tapping-term-ms = <205>;
             bindings = <&mo 3>, <&mo 3>, <&mo 7>;
         };
 
         td_l4_l4_l7: tap_dance_l4_l4_l7 {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
-            tapping-term-ms = <195>;
+            tapping-term-ms = <205>;
             bindings = <&mo 4>, <&mo 4>, <&mo 7>;
         };
     };
