@@ -309,20 +309,9 @@
             >;
         };
 
-//         sandbox_layer {
-//             display-name = "Sandbox";
-// // -----------------------------------------------------------------------------------
-// // |  ___ | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ___  |
-// // |  ___ | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ___  |
-// // |  ___ | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ___  |
-// //                    | ___ | ___ | ___ |       | ___ | ___ | ___ |
-//             bindings = <
-//     &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
-//     &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
-//     &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
-//                                                                          &trans                 &trans                 &trans                           &trans                 &trans                 &trans
-//             >;
-//         };
+        sandbox_layer {
+            status = "reserved";
+        };
     };
 };
 
