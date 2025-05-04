@@ -104,47 +104,6 @@
             quick-tap-ms = <175>;
             bindings = <&mo>, <&kp>;
         };
-
-        ht_ltl: hold_tap_layer_tap_left {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <205>;
-            quick-tap-ms = <175>;
-            bindings = <&mo>, <&kp>;
-        };
-
-        ht_ltr: hold_tap_layer_tap_right {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <205>;
-            quick-tap-ms = <175>;
-            bindings = <&mo>, <&kp>;
-        };
-
-
-
-        td_l1_l6: tap_dance_l1_l6 {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <205>;
-            bindings = <&mo 1>, <&mo 6>;
-        };
-
-        td_l3_l3_l7: tap_dance_l3_l3_l7 {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <205>;
-            bindings = <&mo 3>, <&mo 3>, <&mo 7>;
-        };
-
-        td_l4_l4_l7: tap_dance_l4_l4_l7 {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <205>;
-            bindings = <&mo 4>, <&mo 4>, <&mo 7>;
-        };
     };
 };
 
@@ -335,6 +294,7 @@
         };
 
         sandbox_layer {
+            display_name = "Sandbox"
             status = "reserved";
         };
     };
