@@ -22,6 +22,28 @@
 #define RIGHT_THUMBS 39 40 41
 #define RIGHT_HAND RIGHT_KEYS RIGHT_THUMBS
 
+#define BASE 0
+#define NUMBER 1
+#define SYMBOL 2
+#define NAVIGATE 3
+#define MEDIA 4
+#define EDIT 5
+#define MACRO 6
+#define SYSUTILS 7
+#define SYSTEM 8
+#define BLUETOOTH 9
+#define KEYSYS 10
+#define SANDBOX 11
+
+#define NUM NUMBER
+#define SYM SYMBOL
+#define NAV NAVIGATE
+#define UTILS SYSUTILS
+#define SYS SYSTEM
+#define BT BLUETOOTH
+#define KSYS KEYSYS
+#define SBX SANDBOX
+
 
 
 / {
@@ -158,7 +180,7 @@
     &kp TAB                &kp Q                  &kp W                  &kp E                  &kp R                  &kp T                            &kp Y                  &kp U                  &kp I                  &kp O                  &kp P                  &kp MINUS
     &caps_word             &hrm_l LGUI A          &hrm_l LALT S          &hrm_l LCTRL D         &hrm_li LSHFT F        &kp G                            &kp H                  &hrm_ri RSHFT J        &hrm_r RCTRL K         &hrm_r RALT L          &hrm_r RGUI SEMICOLON  &kp SINGLE_QUOTE
     &sk LEFT_SHIFT         &kp Z                  &kp X                  &kp C                  &kp V                  &kp B                            &kp N                  &kp M                  &kp COMMA              &kp PERIOD             &kp SLASH              &sk RIGHT_SHIFT
-                                                                         &ht_lt 3 ESCAPE        &ht_lt 1 DELETE        &ht_lt 5 SPACE                   &ht_lt 5 RETURN        &ht_lt 2 BACKSPACE     &ht_lt 4 ESCAPE
+                                                                         &ht_lt NAV ESCAPE      &ht_lt NUM DELETE      &ht_lt EDIT SPACE                &ht_lt EDIT RETURN     &ht_lt SYM BACKSPACE   &ht_lt MEDIA ESCAPE
             >;
         };
 
@@ -237,32 +259,17 @@
             >;
         };
 
-        bluetooth_layer {
-            display-name = "BT";
+        macro_layer {
+            display-name = "Macro";
 // -----------------------------------------------------------------------------------
-// |  ___ | ___ | BTP | ___ | ___ | BTN |       | ___ | ___ | ___ | ___ | ___ | ___  |
-// | BCLR | BT1 | BT2 | BT3 | BT4 | BT5 |       | ___ | ___ | ___ | ___ | ___ | ___  |
-// | BRES | BD1 | BD2 | BD3 | BD4 | BD5 |       | ___ | ___ | ___ | ___ | ___ | ___  |
+// |  ___ | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ___  |
+// |  ___ | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ___  |
+// |  ___ | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ___  |
 //                    | ___ | ___ | ___ |       | ___ | ___ | ___ |
             bindings = <
-    &trans                 &trans                 &bt BT_PRV             &trans                 &trans                 &bt BT_NXT                       &trans                 &trans                 &trans                 &trans                 &trans                 &trans
-    &bt BT_CLR             &bt BT_SEL 0           &bt BT_SEL 1           &bt BT_SEL 2           &bt BT_SEL 3           &bt BT_SEL 4                     &trans                 &trans                 &trans                 &trans                 &trans                 &trans
-    &bt BT_CLR_ALL         &bt BT_DISC 0          &bt BT_DISC 1          &bt BT_DISC 2          &bt BT_DISC 3          &bt BT_DISC 4                    &trans                 &trans                 &trans                 &trans                 &trans                 &trans
-                                                                         &trans                 &trans                 &trans                           &trans                 &trans                 &trans
-            >;
-        };
-
-        keysys_layer {
-            display-name = "Keysys";
-// -----------------------------------------------------------------------------------
-// |  BLD | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | BLD  |
-// |  ULC | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ULC  |
-// |  RES | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | RES  |
-//                    | ___ | ___ | ___ |       | ___ | ___ | ___ |
-            bindings = <
-    &bootloader            &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &bootloader
-    &studio_unlock         &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &studio_unlock
-    &sys_reset             &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &sys_reset
+    &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
+    &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
+    &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
                                                                          &trans                 &trans                 &trans                           &trans                 &trans                 &trans
             >;
         };
@@ -297,6 +304,36 @@
             >;
         };
 
+        bluetooth_layer {
+            display-name = "BT";
+// -----------------------------------------------------------------------------------
+// |  ___ | ___ | BTP | ___ | ___ | BTN |       | ___ | ___ | ___ | ___ | ___ | ___  |
+// | BCLR | BT1 | BT2 | BT3 | BT4 | BT5 |       | ___ | ___ | ___ | ___ | ___ | ___  |
+// | BRES | BD1 | BD2 | BD3 | BD4 | BD5 |       | ___ | ___ | ___ | ___ | ___ | ___  |
+//                    | ___ | ___ | ___ |       | ___ | ___ | ___ |
+            bindings = <
+    &trans                 &trans                 &bt BT_PRV             &trans                 &trans                 &bt BT_NXT                       &trans                 &trans                 &trans                 &trans                 &trans                 &trans
+    &bt BT_CLR             &bt BT_SEL 0           &bt BT_SEL 1           &bt BT_SEL 2           &bt BT_SEL 3           &bt BT_SEL 4                     &trans                 &trans                 &trans                 &trans                 &trans                 &trans
+    &bt BT_CLR_ALL         &bt BT_DISC 0          &bt BT_DISC 1          &bt BT_DISC 2          &bt BT_DISC 3          &bt BT_DISC 4                    &trans                 &trans                 &trans                 &trans                 &trans                 &trans
+                                                                         &trans                 &trans                 &trans                           &trans                 &trans                 &trans
+            >;
+        };
+
+        keysys_layer {
+            display-name = "Keysys";
+// -----------------------------------------------------------------------------------
+// |  BLD | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | BLD  |
+// |  ULC | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ULC  |
+// |  RES | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | RES  |
+//                    | ___ | ___ | ___ |       | ___ | ___ | ___ |
+            bindings = <
+    &bootloader            &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &bootloader
+    &studio_unlock         &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &studio_unlock
+    &sys_reset             &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &sys_reset
+                                                                         &trans                 &trans                 &trans                           &trans                 &trans                 &trans
+            >;
+        };
+
         sandbox_layer {
             status = "reserved";
         };
@@ -308,19 +345,34 @@
 / {
     conditional_layers {
         compatible = "zmk,conditional-layers";
+        macro_layer {
+            if-layers = <SYMBOL EDIT>;
+            then-layer = <MACRO>;
+        };
+
         sysutils_layer {
-            if-layers = <1 2>;
-            then-layer = <8>;
+            if-layers = <NUMBER SYMBOL>;
+            then-layer = <SYSUTILS>;
         };
 
         system_layer {
-            if-layers = <3 4>;
-            then-layer = <9>;
+            if-layers = <NAVIGATE MEDIA>;
+            then-layer = <SYSTEM>;
+        };
+
+        bluetooth_layer {
+            if-layers = <SYSUTILS EDIT>;
+            then-layer = <BLUETOOTH>;
+        };
+
+        keysys_layer {
+            if-layers = <SYSTEM EDIT>;
+            then-layer = <KEYSYS>;
         };
 
         sandbox_layer {
-            if-layers = <1 4>;
-            then-layer = <10>;
+            if-layers = <NUMBER MEDIA>;
+            then-layer = <SANDBOX>;
         };
     };
 };
