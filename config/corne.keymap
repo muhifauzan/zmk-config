@@ -43,11 +43,10 @@
             #binding-cells = <2>;
             flavor = "hold-preferred";
             require-prior-idle-ms = <175>;
-            tapping-term-ms = <195>;
+            tapping-term-ms = <185>;
             quick-tap-ms = <175>;
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <RIGHT_HAND>;
-            hold-trigger-on-release;
         };
 
         hrm_r: home_row_mod_right {
@@ -67,11 +66,10 @@
             #binding-cells = <2>;
             flavor = "hold-preferred";
             require-prior-idle-ms = <175>;
-            tapping-term-ms = <195>;
+            tapping-term-ms = <185>;
             quick-tap-ms = <175>;
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <LEFT_HAND>;
-            hold-trigger-on-release;
         };
 
 
