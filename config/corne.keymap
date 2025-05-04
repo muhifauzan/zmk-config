@@ -294,7 +294,7 @@
         };
 
         sandbox_layer {
-            display_name = "Sandbox";
+            display-name = "Sandbox";
             status = "reserved";
         };
     };
