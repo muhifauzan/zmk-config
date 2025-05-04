@@ -178,12 +178,12 @@
 // -----------------------------------------------------------------------------------
 // |  ___ | ___ | ___ | ___ | ___ | ___ |       | HOM | PDN | PUP | END | ___ | CMN  |
 // |  ___ | GUI | ALT | CTL | SFT | ___ |       |  ←  |  ↓  |  ↑  |  →  | GUI | ___  |
-// |  ESC | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ESC  |
+// |  ___ | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ___  |
 //                    | ___ | ___ | ___ |       | ___ | ___ | ___ |
             bindings = <
     &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &kp HOME               &kp PAGE_DOWN          &kp PAGE_UP            &kp END                &trans                 &kp K_CONTEXT_MENU
     &trans                 &kp LEFT_GUI           &kp LEFT_ALT           &kp LEFT_CONTROL       &kp LEFT_SHIFT         &trans                           &kp LEFT               &kp DOWN               &kp UP                 &kp RIGHT              &kp RIGHT_GUI          &trans
-    &kp ESCAPE             &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &kp ESCAPE
+    &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
                                                                          &trans                 &trans                 &trans                           &trans                 &trans                 &trans
             >;
         };
@@ -208,12 +208,12 @@
 // -----------------------------------------------------------------------------------
 // |  ___ | ___ | ___ | ___ | ___ | ___ |       | UND | ___ | ___ | RED | ___ | ___  |
 // |  ___ | GUI | ALT | CTL | SFT | DEL |       | BSP | INS | TAB | DEL | GUI | ___  |
-// |  ESC | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ESC  |
+// |  ___ | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ___  |
 //                    | ___ | ___ | ___ |       | ___ | ___ | ___ |
             bindings = <
     &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &kp RC(Z)              &trans                 &trans                 &kp LC(Y)              &trans                 &trans
     &trans                 &kp LEFT_GUI           &kp LEFT_ALT           &kp LEFT_CONTROL       &kp LEFT_SHIFT         &kp DELETE                       &kp BACKSPACE          &kp INSERT             &kp TAB                &kp DELETE             &kp RIGHT_GUI          &trans
-    &kp ESCAPE             &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &kp ESCAPE
+    &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
                                                                          &trans                 &trans                 &trans                           &trans                 &trans                 &trans
             >;
         };
