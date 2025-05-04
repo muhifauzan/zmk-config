@@ -25,7 +25,7 @@
 #define BASE 0
 #define NUMBER 1
 #define SYMBOL 2
-#define NAVIGATE 3
+#define NAVIGATION 3
 #define MEDIA 4
 #define EDIT 5
 #define MACRO 6
@@ -37,7 +37,7 @@
 
 #define NUM NUMBER
 #define SYM SYMBOL
-#define NAV NAVIGATE
+#define NAV NAVIGATION
 #define UTILS SYSUTILS
 #define SYS SYSTEM
 #define BT BLUETOOTH
@@ -316,7 +316,7 @@
         };
 
         system_layer {
-            if-layers = <NAVIGATE MEDIA>;
+            if-layers = <NAVIGATION MEDIA>;
             then-layer = <SYSTEM>;
         };
 
