@@ -326,12 +326,12 @@
             then-layer = <BLUETOOTH>;
         };
 
-        keysys_layer {
+        keysys_layer_left {
             if-layers = <NUMBER NAVIGATION EDIT>;
             then-layer = <KEYSYS>;
         };
 
-        keysys_layer {
+        keysys_layer_right {
             if-layers = <SYMBOL MEDIA EDIT>;
             then-layer = <KEYSYS>;
         };
