@@ -162,14 +162,14 @@
         symbol_layer {
             display-name = "Symbol";
 // -----------------------------------------------------------------------------------
-// |   &  |  #  |  %  |  {  |  }  |  :  |       |  `  |  -  |  +  |  /  |  *  | ___  |
-// |   =  |  _  |  [  |  (  |  )  |  ]  |       |  !  |  ?  |  '  |  ^  |  \  | ___  |
-// |   @  |  ~  |  |  |  <  |  >  |  "  |       |  ;  |  $  | ___ | ___ | ___ | ___  |
+// |   &  |  #  |  %  |  {  |  }  |  "  |       |  `  |  -  |  +  |  /  |  *  | ___  |
+// |   :  |  _  |  [  |  (  |  )  |  ]  |       |  !  |  ?  |  ^  |  \  |  '  | ___  |
+// |   @  |  -  |  |  |  <  |  >  |  =  |       |  ~  |  $  |  ;  | ___ | ___ | ___  |
 //                    | ___ | ___ | ___ |       | ___ | ___ | ___ |
             bindings = <
-    &kp AMPERSAND          &kp HASH               &kp PERCENT            &kp LEFT_BRACE         &kp RIGHT_BRACE        &kp COLON                        &kp GRAVE              &kp MINUS              &kp PLUS               &kp SLASH              &kp ASTERISK           &trans
-    &kp EQUAL              &kp UNDERSCORE         &kp LEFT_BRACKET       &kp LEFT_PARENTHESIS   &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACKET                &kp EXCLAMATION        &kp QUESTION           &kp SINGLE_QUOTE       &kp CARET              &kp BACKSLASH          &trans
-    &kp AT_SIGN            &kp TILDE              &kp PIPE               &kp LESS_THAN          &kp GREATER_THAN       &kp DOUBLE_QUOTES                &kp SEMICOLON          &kp DOLLAR             &trans                 &trans                 &trans                 &trans
+    &kp AMPERSAND          &kp HASH               &kp PERCENT            &kp LEFT_BRACE         &kp RIGHT_BRACE        &kp DOUBLE_QUOTES                &kp GRAVE              &kp MINUS              &kp PLUS               &kp SLASH              &kp ASTERISK           &trans
+    &kp COLON              &kp UNDERSCORE         &kp LEFT_BRACKET       &kp LEFT_PARENTHESIS   &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACKET                &kp EXCLAMATION        &kp QUESTION           &kp CARET              &kp BACKSLASH          &kp SINGLE_QUOTE       &trans
+    &kp AT_SIGN            &kp MINUS              &kp PIPE               &kp LESS_THAN          &kp GREATER_THAN       &kp EQUAL                        &kp TILDE              &kp DOLLAR             &kp SEMICOLON          &trans                 &trans                 &trans
                                                                          &trans                 &trans                 &trans                           &trans                 &trans                 &trans
             >;
         };
