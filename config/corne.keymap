@@ -327,7 +327,12 @@
         };
 
         keysys_layer {
-            if-layers = <SYSTEM EDIT>;
+            if-layers = <NUMBER NAVIGATION EDIT>;
+            then-layer = <KEYSYS>;
+        };
+
+        keysys_layer {
+            if-layers = <SYMBOL MEDIA EDIT>;
             then-layer = <KEYSYS>;
         };
 
