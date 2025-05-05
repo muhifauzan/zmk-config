@@ -110,6 +110,81 @@
 
 
 
+/ {
+    macros {
+        ex_map: elixir_map {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&kp PERCENT>
+                , <&kp LEFT_BRACE>
+                , <&kp RIGHT_BRACE>
+                , <&kp LEFT>
+                ;
+        };
+
+        ex_interpolation: elixir_interpolation {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&kp HASH>
+                , <&kp LEFT_BRACE>
+                , <&kp RIGHT_BRACE>
+                , <&kp LEFT>
+                ;
+        };
+
+        ex_full_interpolation: elixir_full_interpolation {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&kp DOUBLE_QUOTES>
+                , <&kp HASH>
+                , <&kp LEFT_BRACE>
+                , <&kp RIGHT_BRACE>
+                , <&kp DOUBLE_QUOTES>
+                , <&kp LEFT>
+                , <&kp LEFT>
+                ;
+        };
+
+        ex_arrow: elixir_arrow {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&kp MINUS>
+                , <&kp GREATER_THAN>
+                , <&kp SPACE>
+                ;
+        };
+
+        ex_pipe: elixir_pipe {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&kp PIPE>
+                , <&kp GREATER_THAN>
+                , <&kp SPACE>
+                ;
+        };
+
+        ex_bitstring: elixir_bitstring {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&kp LESS_THAN>
+                , <&kp LESS_THAN>
+                , <&kp GREATER_THAN>
+                , <&kp GREATER_THAN>
+                , <&kp LEFT>
+                , <&kp LEFT>
+                ;
+        };
+    };
+};
+
+
+
 // Keymap template
 //         template_layer {
 //             display-name = "Temp";
@@ -222,14 +297,14 @@
         macro_layer {
             display-name = "Macro";
 // -----------------------------------------------------------------------------------
+// |  ___ | #{} | %{} | ___ | ___ |"#{}"|       | ___ | ___ | ___ | ___ | ___ | ___  |
 // |  ___ | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ___  |
-// |  ___ | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ___  |
-// |  ___ | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ___  |
+// |  ___ | ->  | |>  | <<>>| ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ___  |
 //                    | ___ | ___ | ___ |       | ___ | ___ | ___ |
             bindings = <
+    &trans                 &ex_interpolation      &ex_map                &trans                 &trans                 &ex_full_interpolation           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
     &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
-    &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
-    &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
+    &trans                 &ex_arrow              &ex_pipe               &ex_bitstring          &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
                                                                          &trans                 &trans                 &trans                           &trans                 &trans                 &trans
             >;
         };
