@@ -69,6 +69,7 @@
             quick-tap-ms = <175>;
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <RIGHT_HAND>;
+            hold-trigger-on-release;
         };
 
         hrm_r: home_row_mod_right {
@@ -92,6 +93,7 @@
             quick-tap-ms = <175>;
             bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <LEFT_HAND>;
+            hold-trigger-on-release;
         };
 
 
