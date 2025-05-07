@@ -115,7 +115,6 @@
             tapping-term-ms = <185>;
             quick-tap-ms = <175>;
             bindings = <&mo>, <&kp>;
-            retro-tap;
         };
     };
 };
