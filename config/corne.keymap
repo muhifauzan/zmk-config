@@ -63,7 +63,7 @@
         hrm_li: home_row_mod_left_index {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "hold-preferred";
+            flavor = "balanced";
             require-prior-idle-ms = <151>;
             tapping-term-ms = <185>;
             quick-tap-ms = <175>;
@@ -87,7 +87,7 @@
         hrm_ri: home_row_mod_right_index {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "hold-preferred";
+            flavor = "balanced";
             require-prior-idle-ms = <151>;
             tapping-term-ms = <185>;
             quick-tap-ms = <175>;
