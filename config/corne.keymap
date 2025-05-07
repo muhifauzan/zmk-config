@@ -98,16 +98,6 @@
 
 
 
-        ht_lt: hold_tap_layer_tap {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            require-prior-idle-ms = <175>;
-            tapping-term-ms = <185>;
-            quick-tap-ms = <175>;
-            bindings = <&mo>, <&kp>;
-        };
-
         thumb: hold_tap_thumb {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
