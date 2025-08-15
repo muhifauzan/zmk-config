@@ -44,6 +44,13 @@
 #define KSYS KEYSYS
 #define SBX SANDBOX
 
+#define HOLD_MS 275
+#define TAP_HOLD_MS 175
+#define PRIOR_MS 175
+
+#define INDEX_HOLD_MS 185
+#define INDEX_PRIOR_MS 101
+
 
 
 / {
@@ -63,9 +70,9 @@
             #binding-cells = <2>;
             bindings = <&kp>, <&kp>;
             flavor = "balanced";
-            tapping-term-ms = <275>;
-            quick-tap-ms = <175>;
-            require-prior-idle-ms = <175>;
+            tapping-term-ms = <HOLD_MS>;
+            quick-tap-ms = <TAP_HOLD_MS>;
+            require-prior-idle-ms = <PRIOR_MS>;
             hold-trigger-key-positions = <RIGHT_HAND>;
             hold-trigger-on-release;
         };
@@ -75,9 +82,9 @@
             #binding-cells = <2>;
             bindings = <&kp>, <&kp>;
             flavor = "balanced";
-            tapping-term-ms = <185>;
-            quick-tap-ms = <175>;
-            require-prior-idle-ms = <151>;
+            tapping-term-ms = <INDEX_HOLD_MS>;
+            quick-tap-ms = <TAP_HOLD_MS>;
+            require-prior-idle-ms = <INDEX_PRIOR_MS>;
             hold-trigger-key-positions = <RIGHT_HAND>;
             hold-trigger-on-release;
         };
@@ -87,9 +94,9 @@
             #binding-cells = <2>;
             bindings = <&kp>, <&kp>;
             flavor = "balanced";
-            tapping-term-ms = <275>;
-            quick-tap-ms = <175>;
-            require-prior-idle-ms = <175>;
+            tapping-term-ms = <HOLD_MS>;
+            quick-tap-ms = <TAP_HOLD_MS>;
+            require-prior-idle-ms = <PRIOR_MS>;
             hold-trigger-key-positions = <LEFT_HAND>;
             hold-trigger-on-release;
         };
@@ -99,9 +106,9 @@
             #binding-cells = <2>;
             bindings = <&kp>, <&kp>;
             flavor = "balanced";
-            tapping-term-ms = <185>;
-            quick-tap-ms = <175>;
-            require-prior-idle-ms = <151>;
+            tapping-term-ms = <INDEX_HOLD_MS>;
+            quick-tap-ms = <TAP_HOLD_MS>;
+            require-prior-idle-ms = <INDEX_PRIOR_MS>;
             hold-trigger-key-positions = <LEFT_HAND>;
             hold-trigger-on-release;
         };
@@ -113,8 +120,8 @@
             #binding-cells = <2>;
             bindings = <&mo>, <&kp>;
             flavor = "balanced";
-            tapping-term-ms = <275>;
-            quick-tap-ms = <175>;
+            tapping-term-ms = <HOLD_MS>;
+            quick-tap-ms = <TAP_HOLD_MS>;
         };
     };
 };
