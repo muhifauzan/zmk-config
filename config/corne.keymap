@@ -54,6 +54,128 @@
 
 
 / {
+    macros {
+        m_parens: macro_parentheses {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_PARENTHESIS &kp RIGHT_PARENTHESIS &kp LEFT>;
+        };
+
+        m_brackets: macro_brackets {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_BRACKET &kp RIGHT_BRACKET &kp LEFT>;
+        };
+
+        m_braces: macro_braces {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_BRACE &kp RIGHT_BRACE &kp LEFT>;
+        };
+
+        m_chevrons: macro_angle_brackets {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LESS_THAN &kp GREATER_THAN &kp LEFT>;
+        };
+
+        m_arrow: macro_right_arrow {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp MINUS &kp GREATER_THAN &kp SPACE>;
+        };
+
+        m_arrow_l: macro_left_arrow {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LESS_THAN &kp MINUS &kp SPACE>;
+        };
+
+        m_fat_arrow: macro_right_fat_arrow {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp EQUAL &kp GREATER_THAN &kp SPACE>;
+        };
+
+        m_fat_arrow_l: macro_left_fat_arrow {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LESS_THAN &kp EQUAL &kp SPACE>;
+        };
+
+        m_tilde_arrow: macro_right_tilde_arrow {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp TILDE &kp GREATER_THAN &kp SPACE>;
+        };
+
+        m_tilde_arrow_l: macro_left_tilde_arrow {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LESS_THAN &kp TILDE &kp SPACE>;
+        };
+
+        m_pipe: macro_right_pipe {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp PIPE &kp GREATER_THAN &kp SPACE>;
+        };
+
+        m_pipe_l: macro_left_pipe {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LESS_THAN &kp PIPE &kp SPACE>;
+        };
+
+
+
+        m_ex_bitstring: macro_elixir_bitstring {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LESS_THAN &kp LESS_THAN &kp GREATER_THAN &kp GREATER_THAN &kp LEFT &kp LEFT>;
+        };
+
+        m_ex_type_deli: macro_elixir_type_delimiter {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp COLON &kp COLON &kp SPACE>;
+        };
+
+        m_ex_spec: macro_elixir_spec {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp AT_SIGN &kp S &kp P &kp E &kp C &kp SPACE>;
+        };
+
+        m_ex_type: macro_elixir_type {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp AT_SIGN &kp T &kp Y &kp P &kp E &kp SPACE>;
+        };
+
+        m_ex_map: macro_elixir_map {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp PERCENT &kp LEFT_BRACE &kp RIGHT_BRACE &kp LEFT>;
+        };
+
+        m_ex_inter: macro_elixir_interpolation {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp HASH &kp LEFT_BRACE &kp RIGHT_BRACE &kp LEFT>;
+        };
+
+        m_ex_full_inter: macro_elixir_full_interpolation {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp DOUBLE_QUOTES &kp HASH &kp LEFT_BRACE &kp RIGHT_BRACE &kp DOUBLE_QUOTES &kp LEFT &kp LEFT>;
+        };
+    };
+};
+
+
+
+/ {
     behaviors {
         sk_qr: sticky_key_quick_release {
             compatible = "zmk,behavior-sticky-key";
@@ -123,80 +245,49 @@
             tapping-term-ms = <HOLD_MS>;
             quick-tap-ms = <TAP_HOLD_MS>;
         };
-    };
-};
 
 
 
-/ {
-    macros {
-        ex_map: elixir_map {
-            compatible = "zmk,behavior-macro";
+        mm_arrows: mod_morph_arrows {
+            compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings
-                = <&kp PERCENT>
-                , <&kp LEFT_BRACE>
-                , <&kp RIGHT_BRACE>
-                , <&kp LEFT>
-                ;
+            bindings = <&m_arrow>, <&m_arrow_l>;
+            mods = <(MOD_LSFT | MOD_RSFT)>;
         };
 
-        ex_interpolation: elixir_interpolation {
-            compatible = "zmk,behavior-macro";
+        mm_fat_arrows: mod_morph_fat_arrows {
+            compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings
-                = <&kp HASH>
-                , <&kp LEFT_BRACE>
-                , <&kp RIGHT_BRACE>
-                , <&kp LEFT>
-                ;
+            bindings = <&m_fat_arrow>, <&m_fat_arrow_l>;
+            mods = <(MOD_LSFT | MOD_RSFT)>;
         };
 
-        ex_full_interpolation: elixir_full_interpolation {
-            compatible = "zmk,behavior-macro";
+        mm_tilde_arrows: mod_morph_tilde_arrows {
+            compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings
-                = <&kp DOUBLE_QUOTES>
-                , <&kp HASH>
-                , <&kp LEFT_BRACE>
-                , <&kp RIGHT_BRACE>
-                , <&kp DOUBLE_QUOTES>
-                , <&kp LEFT>
-                , <&kp LEFT>
-                ;
+            bindings = <&m_tilde_arrow>, <&m_tilde_arrow_l>;
+            mods = <(MOD_LSFT | MOD_RSFT)>;
         };
 
-        ex_arrow: elixir_arrow {
-            compatible = "zmk,behavior-macro";
+        mm_pipes: mod_morph_pipes {
+            compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings
-                = <&kp MINUS>
-                , <&kp GREATER_THAN>
-                , <&kp SPACE>
-                ;
+            bindings = <&m_pipe>, <&m_pipe_l>;
+            mods = <(MOD_LSFT | MOD_RSFT)>;
         };
 
-        ex_pipe: elixir_pipe {
-            compatible = "zmk,behavior-macro";
+        mm_chevrons: mod_morph_chevrons {
+            compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings
-                = <&kp PIPE>
-                , <&kp GREATER_THAN>
-                , <&kp SPACE>
-                ;
+            bindings = <&m_ex_bitstring>, <&m_chevrons>;
+            mods = <(MOD_LSFT | MOD_RSFT)>;
         };
 
-        ex_bitstring: elixir_bitstring {
-            compatible = "zmk,behavior-macro";
+        mm_ex_specs: mod_morph_elixir_specs {
+            compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings
-                = <&kp LESS_THAN>
-                , <&kp LESS_THAN>
-                , <&kp GREATER_THAN>
-                , <&kp GREATER_THAN>
-                , <&kp LEFT>
-                , <&kp LEFT>
-                ;
+            bindings = <&m_ex_spec>, <&m_ex_type>;
+            mods = <(MOD_LSFT | MOD_RSFT)>;
         };
     };
 };
@@ -315,14 +406,14 @@
         macro_layer {
             display-name = "Macro";
 // -----------------------------------------------------------------------------------
-// |  ___ | #{} | %{} | ___ | ___ |"#{}"|       | ___ | ___ | ___ | ___ | ___ | ___  |
-// |  ___ | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ___  |
-// |  ___ | ->  | |>  | <<>>| ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ___  |
+// |  ___ | #{} | %{} | {}  | ___ |"#{}"|       | ___ | ___ | ___ | ___ | ___ | ___  |
+// |  ::  | ___ | []  | ()  | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ___  |
+// |@spec | <-> | <|> | <<>>| ___ | <=> |       | <~> | ___ | ___ | ___ | ___ | ___  |
 //                    | ___ | ___ | ___ |       | ___ | ___ | ___ |
             bindings = <
-    &trans                 &ex_interpolation      &ex_map                &trans                 &trans                 &ex_full_interpolation           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
-    &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
-    &trans                 &ex_arrow              &ex_pipe               &ex_bitstring          &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
+    &trans                 &m_ex_inter            &m_ex_map              &m_braces              &trans                 &m_ex_full_inter                 &trans                 &trans                 &trans                 &trans                 &trans                 &trans
+    &m_ex_type_deli        &trans                 &m_brackets            &m_parens              &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
+    &mm_ex_specs           &mm_arrows             &mm_pipes              &mm_chevrons           &mm_fat_arrows         &mm_tilde_arrows                 &trans                 &trans                 &trans                 &trans                 &trans                 &trans
                                                                          &trans                 &trans                 &trans                           &trans                 &trans                 &trans
             >;
         };
