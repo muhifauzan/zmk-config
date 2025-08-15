@@ -61,11 +61,11 @@
         hrm_l: home_row_mod_left {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
             flavor = "balanced";
-            require-prior-idle-ms = <175>;
             tapping-term-ms = <275>;
             quick-tap-ms = <175>;
-            bindings = <&kp>, <&kp>;
+            require-prior-idle-ms = <175>;
             hold-trigger-key-positions = <RIGHT_HAND>;
             hold-trigger-on-release;
         };
@@ -73,11 +73,11 @@
         hrm_li: home_row_mod_left_index {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
             flavor = "balanced";
-            require-prior-idle-ms = <151>;
             tapping-term-ms = <185>;
             quick-tap-ms = <175>;
-            bindings = <&kp>, <&kp>;
+            require-prior-idle-ms = <151>;
             hold-trigger-key-positions = <RIGHT_HAND>;
             hold-trigger-on-release;
         };
@@ -85,11 +85,11 @@
         hrm_r: home_row_mod_right {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
             flavor = "balanced";
-            require-prior-idle-ms = <175>;
             tapping-term-ms = <275>;
             quick-tap-ms = <175>;
-            bindings = <&kp>, <&kp>;
+            require-prior-idle-ms = <175>;
             hold-trigger-key-positions = <LEFT_HAND>;
             hold-trigger-on-release;
         };
@@ -97,11 +97,11 @@
         hrm_ri: home_row_mod_right_index {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
+            bindings = <&kp>, <&kp>;
             flavor = "balanced";
-            require-prior-idle-ms = <151>;
             tapping-term-ms = <185>;
             quick-tap-ms = <175>;
-            bindings = <&kp>, <&kp>;
+            require-prior-idle-ms = <151>;
             hold-trigger-key-positions = <LEFT_HAND>;
             hold-trigger-on-release;
         };
@@ -111,10 +111,10 @@
         thumb: hold_tap_thumb {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
+            bindings = <&mo>, <&kp>;
             flavor = "balanced";
             tapping-term-ms = <275>;
             quick-tap-ms = <175>;
-            bindings = <&mo>, <&kp>;
         };
     };
 };
