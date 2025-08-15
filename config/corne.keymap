@@ -318,12 +318,12 @@
 // -----------------------------------------------------------------------------------
 // |  TAB |  Q  |  W  |  E  |  R  |  T  |       |  Y  |  U  |  I  |  O  |  P  |  -   |
 // |  CAP |  A  |  S  |  D  |  F  |  G  |       |  H  |  J  |  K  |  L  |  ;  |  '   |
-// |  SFT |  Z  |  X  |  C  |  V  |  B  |       |  N  |  M  |  ,  |  .  |  /  | SFT  |
+// |  SFT |  Z  |  X  |  C  |  V  |  B  |       |  N  |  M  |  ,  |  .  |  /  | CTL  |
 //                    | ESC | DEL | SPC |       | RET | BSP | ESC |
             bindings = <
     &kp TAB                &kp Q                  &kp W                  &kp E                  &kp R                  &kp T                            &kp Y                  &kp U                  &kp I                  &kp O                  &kp P                  &kp MINUS
     &caps_word             &hrm_l LGUI A          &hrm_l LALT S          &hrm_l LCTRL D         &hrm_li LSHFT F        &kp G                            &kp H                  &hrm_ri RSHFT J        &hrm_r RCTRL K         &hrm_r RALT L          &hrm_r RGUI SEMICOLON  &kp SINGLE_QUOTE
-    &sk_qr LEFT_SHIFT      &kp Z                  &kp X                  &kp C                  &kp V                  &kp B                            &kp N                  &kp M                  &kp COMMA              &kp PERIOD             &kp SLASH              &sk_qr RIGHT_SHIFT
+    &sk_qr LEFT_SHIFT      &kp Z                  &kp X                  &kp C                  &kp V                  &kp B                            &kp N                  &kp M                  &kp COMMA              &kp PERIOD             &kp SLASH              &sk_qr RIGHT_CONTROL
                                                                          &thumb NAV ESCAPE      &thumb NUM DELETE      &thumb EDIT SPACE                &thumb EDIT RETURN     &thumb SYM BACKSPACE   &thumb MEDIA ESCAPE
             >;
         };
