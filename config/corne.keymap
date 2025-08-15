@@ -413,7 +413,7 @@
             bindings = <
     &trans                 &m_ex_inter            &m_ex_map              &m_braces              &trans                 &m_ex_full_inter                 &trans                 &trans                 &trans                 &trans                 &trans                 &trans
     &m_ex_type_deli        &trans                 &m_brackets            &m_parens              &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
-    &mm_ex_specs           &mm_arrows             &mm_pipes              &mm_chevrons           &mm_fat_arrows         &mm_tilde_arrows                 &trans                 &trans                 &trans                 &trans                 &trans                 &trans
+    &mm_ex_specs           &mm_arrows             &mm_pipes              &mm_chevrons           &trans                 &mm_fat_arrows                   &mm_tilde_arrows       &trans                 &trans                 &trans                 &trans                 &trans
                                                                          &trans                 &trans                 &trans                           &trans                 &trans                 &trans
             >;
         };
