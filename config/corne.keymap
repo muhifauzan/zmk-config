@@ -48,6 +48,16 @@
 
 / {
     behaviors {
+        sk_qr: sticky_key_quick_release {
+            compatible = "zmk,behavior-sticky-key";
+            #binding-cells = <1>;
+            bindings = <&kp>;
+            release-after-ms = <1000>;
+            quick-release;
+        };
+
+
+
         hrm_l: home_row_mod_left {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -215,7 +225,7 @@
             bindings = <
     &kp TAB                &kp Q                  &kp W                  &kp E                  &kp R                  &kp T                            &kp Y                  &kp U                  &kp I                  &kp O                  &kp P                  &kp MINUS
     &caps_word             &hrm_l LGUI A          &hrm_l LALT S          &hrm_l LCTRL D         &hrm_li LSHFT F        &kp G                            &kp H                  &hrm_ri RSHFT J        &hrm_r RCTRL K         &hrm_r RALT L          &hrm_r RGUI SEMICOLON  &kp SINGLE_QUOTE
-    &sk LEFT_SHIFT         &kp Z                  &kp X                  &kp C                  &kp V                  &kp B                            &kp N                  &kp M                  &kp COMMA              &kp PERIOD             &kp SLASH              &sk RIGHT_SHIFT
+    &sk_qr LEFT_SHIFT      &kp Z                  &kp X                  &kp C                  &kp V                  &kp B                            &kp N                  &kp M                  &kp COMMA              &kp PERIOD             &kp SLASH              &sk_qr RIGHT_SHIFT
                                                                          &thumb NAV ESCAPE      &thumb NUM DELETE      &thumb EDIT SPACE                &thumb EDIT RETURN     &thumb SYM BACKSPACE   &thumb MEDIA ESCAPE
             >;
         };
