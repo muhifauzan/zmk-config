@@ -379,12 +379,12 @@
         media_layer {
             display-name = "Media";
 // -----------------------------------------------------------------------------------
-// |  MUT | ___ | BDE | VDN | VUP | BIN |       | BCK | REF | STP | FWD | HOM | ___  |
+// |  ___ | MUT | BDE | VDN | VUP | BIN |       | BCK | REF | STP | FWD | HOM | ___  |
 // |  STP | PLP | PRV | RWD | FFW | NXT |       | BMR | SCH | COM | CAL | MAI | ___  |
 // |  ___ | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ___  |
 //                    | ___ | ___ | ___ |       | ___ | ___ | ___ |
             bindings = <
-    &kp C_MUTE             &trans                 &kp C_BRIGHTNESS_DEC   &kp C_VOLUME_DOWN      &kp C_VOLUME_UP        &kp C_BRIGHTNESS_INC             &kp C_AC_BACK          &kp C_AC_REFRESH       &kp C_AC_STOP          &kp C_AC_FORWARD       &kp C_AC_HOME          &trans
+    &trans                 &kp C_MUTE             &kp C_BRIGHTNESS_DEC   &kp C_VOLUME_DOWN      &kp C_VOLUME_UP        &kp C_BRIGHTNESS_INC             &kp C_AC_BACK          &kp C_AC_REFRESH       &kp C_AC_STOP          &kp C_AC_FORWARD       &kp C_AC_HOME          &trans
     &kp C_STOP             &kp C_PLAY_PAUSE       &kp C_PREVIOUS         &kp C_REWIND           &kp C_FAST_FORWARD     &kp C_NEXT                       &kp C_AC_BOOKMARKS     &kp C_AC_SEARCH        &kp C_AL_MY_COMPUTER   &kp C_AL_CALCULATOR    &kp C_AL_EMAIL         &trans
     &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
                                                                          &trans                 &trans                 &trans                           &trans                 &trans                 &trans
