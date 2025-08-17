@@ -365,12 +365,12 @@
             display-name = "Nav";
 // -----------------------------------------------------------------------------------
 // |  ___ | ___ | ___ | ___ | ___ | ___ |       | HOM | PUP | PDN | END | ___ | CMN  |
-// |  ___ | GUI | ALT | CTL | SFT | ___ |       |  ←  |  ↓  |  ↑  |  →  | ___ | ___  |
+// |  ___ | GUI | ALT | CTL | SFT | ___ |       |  ←  |  ↓  |  ↑  |  →  | GUI | ___  |
 // |  ___ | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ___  |
 //                    | ___ | ___ | ___ |       | ___ | ___ | ___ |
             bindings = <
     &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &kp HOME               &kp PAGE_UP            &kp PAGE_DOWN          &kp END                &trans                 &kp K_CONTEXT_MENU
-    &trans                 &kp LEFT_GUI           &kp LEFT_ALT           &kp LEFT_CONTROL       &kp LEFT_SHIFT         &trans                           &kp LEFT               &kp DOWN               &kp UP                 &kp RIGHT              &trans                 &trans
+    &trans                 &kp LEFT_GUI           &kp LEFT_ALT           &kp LEFT_CONTROL       &kp LEFT_SHIFT         &trans                           &kp LEFT               &kp DOWN               &kp UP                 &kp RIGHT              &kp RIGHT_GUI          &trans
     &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
                                                                          &trans                 &trans                 &trans                           &trans                 &trans                 &trans
             >;
