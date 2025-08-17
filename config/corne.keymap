@@ -395,13 +395,13 @@
             display-name = "Edit";
 // -----------------------------------------------------------------------------------
 // |  ___ | ___ | ___ | ___ | ___ | ___ |       | UND | ___ | ___ | RED | ___ | ___  |
-// |  ___ | GUI | ALT | CTL | SFT | DEL |       | BSP | INS | TAB | DEL | GUI | ___  |
-// |  ___ | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ___  |
+// |  ___ | GUI | ALT | CTL | SFT | DEL |       | BSP | SFT | CTL | ALT | GUI | ___  |
+// |  ___ | ___ | ___ | ___ | ___ | ___ |       | ___ | INS | ___ | DEL | TAB | ___  |
 //                    | ___ | ___ | ___ |       | ___ | ___ | ___ |
             bindings = <
     &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &kp RC(Z)              &trans                 &trans                 &kp LC(Y)              &trans                 &trans
-    &trans                 &kp LEFT_GUI           &kp LEFT_ALT           &kp LEFT_CONTROL       &kp LEFT_SHIFT         &kp DELETE                       &kp BACKSPACE          &kp INSERT             &kp TAB                &kp DELETE             &kp RIGHT_GUI          &trans
-    &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
+    &trans                 &kp LEFT_GUI           &kp LEFT_ALT           &kp LEFT_CONTROL       &kp LEFT_SHIFT         &kp DELETE                       &kp BACKSPACE          &kp RIGHT_SHIFT        &kp RIGHT_CONTROL      &kp RIGHT_ALT          &kp RIGHT_GUI          &trans
+    &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &kp INSERT             &trans                 &kp DELETE             &kp TAB                &trans
                                                                          &trans                 &trans                 &trans                           &trans                 &trans                 &trans
             >;
         };
