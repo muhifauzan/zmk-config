@@ -521,14 +521,14 @@
         system_layer {
             display-name = "System";
 // -----------------------------------------------------------------------------------
-// |  ___ | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | PWR  |
-// |  ___ | ___ | ___ | ___ | ___ | ___ |       | TLC | ___ | ___ | ___ | ___ | SLP  |
-// |  ___ | ___ | ___ | ___ | ___ | ___ |       | LOF | LOC | ___ | ___ | ___ | RES  |
+// |  PWR | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | PWR  |
+// |  SLP | ___ | ___ | ___ | ___ | ___ |       | LOF | LOC | ___ | ___ | ___ | SLP  |
+// |  RES | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | RES  |
 //                    | ___ | ___ | ___ |       | ___ | ___ | ___ |
             bindings = <
-    &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &kp C_POWER
-    &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &kp C_AL_LOCK          &trans                 &trans                 &trans                 &trans                 &kp C_SLEEP
-    &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &kp C_AL_LOGOFF        &kp K_LOCK             &trans                 &trans                 &trans                 &kp C_RESET
+    &kp C_POWER            &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &kp C_POWER
+    &kp C_SLEEP            &trans                 &trans                 &trans                 &trans                 &trans                           &kp C_AL_LOGOFF        &kp C_AL_LOCK          &trans                 &trans                 &trans                 &kp C_SLEEP
+    &kp C_RESET            &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &kp C_RESET
                                                                          &trans                 &trans                 &trans                           &trans                 &trans                 &trans
             >;
         };
