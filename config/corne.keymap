@@ -368,30 +368,30 @@
         plain_layer {
             display-name = "Plain";
 // -----------------------------------------------------------------------------------
-// |  TAB |  Q  |  W  |  E  |  R  |  T  |       |  Y  |  U  |  I  |  O  |  P  |  -   |
-// |  CAP |  A  |  S  |  D  |  F  |  G  |       |  H  |  J  |  K  |  L  |  ;  |  '   |
-// |  SFT |  Z  |  X  |  C  |  V  |  B  |       |  N  |  M  |  ,  |  .  |  /  | CTL  |
-//                    | ESC | DEL | SPC |       | RET | BSP | ESC |
+// |  ___ | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ___  |
+// |  CAP |  A  |  S  |  D  |  F  | ___ |       | ___ |  J  |  K  |  L  |  ;  |  '   |
+// |  SFT | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | CTL  |
+//                    | ___ | ___ | ___ |       | ___ | ___ | ___ |
             bindings = <
-&kp TAB                &kp Q                  &kp W                  &kp E                  &kp R                  &kp T                            &kp Y                  &kp U                  &kp I                  &kp O                  &kp P                  &kp MINUS
-&kp CAPSLOCK           &kp A                  &kp S                  &kp D                  &kp F                  &kp G                            &kp H                  &kp J                  &kp K                  &kp L                  &kp SEMICOLON          &kp SINGLE_QUOTE
-&kp LEFT_SHIFT         &kp Z                  &kp X                  &kp C                  &kp V                  &kp B                            &kp N                  &kp M                  &kp COMMA              &kp PERIOD             &kp SLASH              &kp RIGHT_CONTROL
-                                                                     &kp ESCAPE             &kp DELETE             &kp SPACE                        &kp RETURN             &kp BACKSPACE          &kp ESCAPE
+&trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
+&kp CAPSLOCK           &kp A                  &kp S                  &kp D                  &kp F                  &trans                           &trans                 &kp J                  &kp K                  &kp L                  &kp SEMICOLON          &kp SINGLE_QUOTE
+&kp LEFT_SHIFT         &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &kp RIGHT_CONTROL
+                                                                     &trans                 &trans                 &trans                           &trans                 &trans                 &trans
             >;
         };
 
         game_layer {
             display-name = "Game";
 // -----------------------------------------------------------------------------------
-// |  TAB |  Q  |  W  |  E  |  R  |  T  |       |  Y  |  U  |  I  |  O  |  P  |  -   |
-// |  SFT |  A  |  S  |  D  |  F  |  G  |       |  H  |  J  |  K  |  L  |  ;  |  '   |
-// |  CTL |  Z  |  X  |  C  |  V  |  B  |       |  N  |  M  |  ,  |  .  |  /  | CTL  |
-//                    | ESC | ALT | SPC |       | RET | BSP | ESC |
+// |  ___ | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ___  |
+// |  SFT |  A  |  S  |  D  |  F  | ___ |       | ___ |  J  |  K  |  L  |  ;  |  '   |
+// |  CTL | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | CTL  |
+//                    | ESC | ALT | SPC |       | ___ | ___ | ___ |
             bindings = <
-&kp TAB                &kp Q                  &kp W                  &kp E                  &kp R                  &kp T                            &kp Y                  &kp U                  &kp I                  &kp O                  &kp P                  &kp MINUS
-&kp LEFT_SHIFT         &kp A                  &kp S                  &kp D                  &kp F                  &kp G                            &kp H                  &hrm_ri RSHFT J        &hrm_r RCTRL K         &hrm_r RALT L          &hrm_r RGUI SEMICOLON  &kp SINGLE_QUOTE
-&kp LEFT_CONTROL       &kp Z                  &kp X                  &kp C                  &kp V                  &kp B                            &kp N                  &kp M                  &kp COMMA              &kp PERIOD             &kp SLASH              &sk_qr RIGHT_CONTROL
-                                                                     &thumb GUTILS ESCAPE   &kp LEFT_ALT           &kp SPACE                        &thumb EDIT RETURN     &thumb SYM BACKSPACE   &thumb MEDIA ESCAPE
+&trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
+&kp LEFT_SHIFT         &kp A                  &kp S                  &kp D                  &kp F                  &trans                           &trans                 &kp J                  &kp K                  &kp L                  &kp SEMICOLON          &kp SINGLE_QUOTE
+&kp LEFT_CONTROL       &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &kp RIGHT_CONTROL
+                                                                     &thumb GUTILS ESCAPE   &kp LEFT_ALT           &kp SPACE                        &trans                 &trans                 &trans
             >;
         };
 
