@@ -461,13 +461,13 @@
         edit_layer {
             display-name = "Edit";
 // -----------------------------------------------------------------------------------
-// |  ___ | ___ | ___ | ___ | ___ | ___ |       | UND | ___ | ___ | RED | ___ | ___  |
-// |  ___ | GUI | ALT | CTL | SFT | DEL |       | BSP | INS | ESC | DEL | TAB | ___  |
+// |  ESC | ___ | ___ | ___ | ___ | ___ |       | UND | ___ | ___ | RED | ___ | ESC  |
+// |  ___ | GUI | ALT | CTL | SFT | DEL |       | BSP | INS | TAB | DEL | ___ | ___  |
 // |  ___ | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ___  |
 //                    | ___ | ___ | ___ |       | ___ | ___ | ___ |
             bindings = <
-    &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &kp RC(Z)              &trans                 &trans                 &kp LC(Y)              &trans                 &trans
-    &trans                 &kp LEFT_GUI           &kp LEFT_ALT           &kp LEFT_CONTROL       &kp LEFT_SHIFT         &kp DELETE                       &kp BACKSPACE          &kp INSERT             &kp ESCAPE             &kp DELETE             &kp TAB                &trans
+    &kp ESCAPE             &trans                 &trans                 &trans                 &trans                 &trans                           &kp RC(Z)              &trans                 &trans                 &kp LC(Y)              &trans                 &kp ESCAPE
+    &trans                 &kp LEFT_GUI           &kp LEFT_ALT           &kp LEFT_CONTROL       &kp LEFT_SHIFT         &kp DELETE                       &kp BACKSPACE          &kp INSERT             &kp TAB                &kp DELETE             &trans                 &trans
     &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
                                                                          &trans                 &trans                 &trans                           &trans                 &trans                 &trans
             >;
