@@ -552,13 +552,13 @@
             display-name = "Keysys";
 // -----------------------------------------------------------------------------------
 // |  BLD | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | BLD  |
-// |  ULC | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ULC  |
-// |  RES | ___ | ___ | GAM | BAS | ___ |       | ___ | BAS | GAM | ___ | ___ | RES  |
+// |  ULC | ___ | ___ | GAM | BAS | ___ |       | ___ | BAS | GAM | ___ | ___ | ULC  |
+// |  RES | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | RES  |
 //                    | ___ | ___ | ___ |       | ___ | ___ | ___ |
             bindings = <
     &bootloader            &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &bootloader
-    &studio_unlock         &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &studio_unlock
-    &sys_reset             &trans                 &trans                 &to GAME               &to BASE               &trans                           &trans                 &to BASE               &to GAME               &trans                 &trans                 &sys_reset
+    &studio_unlock         &trans                 &trans                 &to GAME               &to BASE               &trans                           &trans                 &to BASE               &to GAME               &trans                 &trans                 &studio_unlock
+    &sys_reset             &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &sys_reset
                                                                          &trans                 &trans                 &trans                           &trans                 &trans                 &trans
             >;
         };
