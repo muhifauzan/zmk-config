@@ -85,49 +85,49 @@
             bindings = <&kp LESS_THAN &kp GREATER_THAN &kp LEFT>;
         };
 
-        m_arrow: macro_right_arrow {
+        m_arrow_r: macro_arrow_right {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp MINUS &kp GREATER_THAN &kp SPACE>;
         };
 
-        m_arrow_l: macro_left_arrow {
+        m_arrow_l: macro_arrow_left {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp LESS_THAN &kp MINUS &kp SPACE>;
         };
 
-        m_fat_arrow: macro_right_fat_arrow {
+        m_fat_arrow_r: macro_fat_arrow_right {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp EQUAL &kp GREATER_THAN &kp SPACE>;
         };
 
-        m_fat_arrow_l: macro_left_fat_arrow {
+        m_fat_arrow_l: macro_fat_arrow_left {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp LESS_THAN &kp EQUAL &kp SPACE>;
         };
 
-        m_tilde_arrow: macro_right_tilde_arrow {
+        m_tilde_arrow_r: macro_tilde_arrow_right {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp TILDE &kp GREATER_THAN &kp SPACE>;
         };
 
-        m_tilde_arrow_l: macro_left_tilde_arrow {
+        m_tilde_arrow_l: macro_tilde_arrow_left {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp LESS_THAN &kp TILDE &kp SPACE>;
         };
 
-        m_pipe: macro_right_pipe {
+        m_pipe_r: macro_pipe_right {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp PIPE &kp GREATER_THAN &kp SPACE>;
         };
 
-        m_pipe_l: macro_left_pipe {
+        m_pipe_l: macro_pipe_left {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp LESS_THAN &kp PIPE &kp SPACE>;
@@ -135,13 +135,15 @@
 
 
 
+        // Elixir
+
         m_ex_bitstring: macro_elixir_bitstring {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp LESS_THAN &kp LESS_THAN &kp GREATER_THAN &kp GREATER_THAN &kp LEFT &kp LEFT>;
         };
 
-        m_ex_type_deli: macro_elixir_type_delimiter {
+        m_ex_type_delim: macro_elixir_type_delimiter {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp COLON &kp COLON &kp SPACE>;
@@ -165,13 +167,13 @@
             bindings = <&kp PERCENT &kp LEFT_BRACE &kp RIGHT_BRACE &kp LEFT>;
         };
 
-        m_ex_inter: macro_elixir_interpolation {
+        m_ex_interp: macro_elixir_interpolation {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp HASH &kp LEFT_BRACE &kp RIGHT_BRACE &kp LEFT>;
         };
 
-        m_ex_full_inter: macro_elixir_full_interpolation {
+        m_ex_full_interp: macro_elixir_full_interpolation {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp DOUBLE_QUOTES &kp HASH &kp LEFT_BRACE &kp RIGHT_BRACE &kp DOUBLE_QUOTES &kp LEFT &kp LEFT>;
@@ -183,6 +185,8 @@
 
 / {
     behaviors {
+        // Custom hold-tap
+
         c_lt: custom_layer_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -201,6 +205,54 @@
 
 
 
+        // Custom mod-morph
+
+        mm_arrows: mod_morph_arrows {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&m_arrow_r>, <&m_arrow_l>;
+            mods = <(MOD_LSFT | MOD_RSFT)>;
+        };
+
+        mm_fat_arrows: mod_morph_fat_arrows {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&m_fat_arrow_r>, <&m_fat_arrow_l>;
+            mods = <(MOD_LSFT | MOD_RSFT)>;
+        };
+
+        mm_tilde_arrows: mod_morph_tilde_arrows {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&m_tilde_arrow_r>, <&m_tilde_arrow_l>;
+            mods = <(MOD_LSFT | MOD_RSFT)>;
+        };
+
+        mm_pipes: mod_morph_pipes {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&m_pipe_r>, <&m_pipe_l>;
+            mods = <(MOD_LSFT | MOD_RSFT)>;
+        };
+
+        mm_chevrons: mod_morph_chevrons {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&m_ex_bitstring>, <&m_chevrons>;
+            mods = <(MOD_LSFT | MOD_RSFT)>;
+        };
+
+        mm_ex_specs: mod_morph_elixir_specs {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&m_ex_spec>, <&m_ex_type>;
+            mods = <(MOD_LSFT | MOD_RSFT)>;
+        };
+
+
+
+        // Custom sticky key
+
         sk_qr: sticky_key_quick_release {
             compatible = "zmk,behavior-sticky-key";
             #binding-cells = <1>;
@@ -210,6 +262,8 @@
         };
 
 
+
+        // Home row mods
 
         hrm_l: home_row_mod_left {
             compatible = "zmk,behavior-hold-tap";
@@ -261,6 +315,8 @@
 
 
 
+        // Thumbs
+
         thumb: hold_tap_thumb {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -268,50 +324,6 @@
             flavor = "balanced";
             tapping-term-ms = <HOLD_MS>;
             quick-tap-ms = <TAP_HOLD_MS>;
-        };
-
-
-
-        mm_arrows: mod_morph_arrows {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&m_arrow>, <&m_arrow_l>;
-            mods = <(MOD_LSFT | MOD_RSFT)>;
-        };
-
-        mm_fat_arrows: mod_morph_fat_arrows {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&m_fat_arrow>, <&m_fat_arrow_l>;
-            mods = <(MOD_LSFT | MOD_RSFT)>;
-        };
-
-        mm_tilde_arrows: mod_morph_tilde_arrows {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&m_tilde_arrow>, <&m_tilde_arrow_l>;
-            mods = <(MOD_LSFT | MOD_RSFT)>;
-        };
-
-        mm_pipes: mod_morph_pipes {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&m_pipe>, <&m_pipe_l>;
-            mods = <(MOD_LSFT | MOD_RSFT)>;
-        };
-
-        mm_chevrons: mod_morph_chevrons {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&m_ex_bitstring>, <&m_chevrons>;
-            mods = <(MOD_LSFT | MOD_RSFT)>;
-        };
-
-        mm_ex_specs: mod_morph_elixir_specs {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&m_ex_spec>, <&m_ex_type>;
-            mods = <(MOD_LSFT | MOD_RSFT)>;
         };
     };
 };
@@ -327,10 +339,10 @@
 // // |  ___ | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ___  |
 // //                    | ___ | ___ | ___ |       | ___ | ___ | ___ |
 //             bindings = <
-//     &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
-//     &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
-//     &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
-//                                                                          &trans                 &trans                 &trans                           &trans                 &trans                 &trans
+// &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
+// &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
+// &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
+//                                                                      &trans                 &trans                 &trans                           &trans                 &trans                 &trans
 //             >;
 //         };
 
@@ -346,10 +358,10 @@
 // |  SFT |  Z  |  X  |  C  |  V  |  B  |       |  N  |  M  |  ,  |  .  |  /  | CTL  |
 //                    | ESC | DEL | SPC |       | RET | BSP | ESC |
             bindings = <
-    &kp TAB                &kp Q                  &kp W                  &kp E                  &kp R                  &kp T                            &kp Y                  &kp U                  &kp I                  &kp O                  &kp P                  &kp MINUS
-    &lt_cw PLAIN 0         &hrm_l LGUI A          &hrm_l LALT S          &hrm_l LCTRL D         &hrm_li LSHFT F        &kp G                            &kp H                  &hrm_ri RSHFT J        &hrm_r RCTRL K         &hrm_r RALT L          &hrm_r RGUI SEMICOLON  &c_lt PLAIN SINGLE_QUOTE
-    &sk_qr LEFT_SHIFT      &kp Z                  &kp X                  &kp C                  &kp V                  &kp B                            &kp N                  &kp M                  &kp COMMA              &kp PERIOD             &kp SLASH              &sk_qr RIGHT_CONTROL
-                                                                         &thumb NAV ESCAPE      &thumb NUMBER DELETE   &thumb EDIT SPACE                &thumb EDIT RETURN     &thumb SYM BACKSPACE   &thumb MEDIA ESCAPE
+&kp TAB                &kp Q                  &kp W                  &kp E                  &kp R                  &kp T                            &kp Y                  &kp U                  &kp I                  &kp O                  &kp P                  &kp MINUS
+&lt_cw PLAIN 0         &hrm_l LGUI A          &hrm_l LALT S          &hrm_l LCTRL D         &hrm_li LSHFT F        &kp G                            &kp H                  &hrm_ri RSHFT J        &hrm_r RCTRL K         &hrm_r RALT L          &hrm_r RGUI SEMICOLON  &c_lt PLAIN SINGLE_QUOTE
+&sk_qr LEFT_SHIFT      &kp Z                  &kp X                  &kp C                  &kp V                  &kp B                            &kp N                  &kp M                  &kp COMMA              &kp PERIOD             &kp SLASH              &sk_qr RIGHT_CONTROL
+                                                                     &thumb NAV ESCAPE      &thumb NUMBER DELETE   &thumb EDIT SPACE                &thumb EDIT RETURN     &thumb SYM BACKSPACE   &thumb MEDIA ESCAPE
             >;
         };
 
@@ -361,10 +373,10 @@
 // |  SFT |  Z  |  X  |  C  |  V  |  B  |       |  N  |  M  |  ,  |  .  |  /  | CTL  |
 //                    | ESC | DEL | SPC |       | RET | BSP | ESC |
             bindings = <
-    &kp TAB                &kp Q                  &kp W                  &kp E                  &kp R                  &kp T                            &kp Y                  &kp U                  &kp I                  &kp O                  &kp P                  &kp MINUS
-    &kp CAPSLOCK           &kp A                  &kp S                  &kp D                  &kp F                  &kp G                            &kp H                  &kp J                  &kp K                  &kp L                  &kp SEMICOLON          &kp SINGLE_QUOTE
-    &kp LEFT_SHIFT         &kp Z                  &kp X                  &kp C                  &kp V                  &kp B                            &kp N                  &kp M                  &kp COMMA              &kp PERIOD             &kp SLASH              &kp RIGHT_CONTROL
-                                                                         &kp ESCAPE             &kp DELETE             &kp SPACE                        &kp RETURN             &kp BACKSPACE          &kp ESCAPE
+&kp TAB                &kp Q                  &kp W                  &kp E                  &kp R                  &kp T                            &kp Y                  &kp U                  &kp I                  &kp O                  &kp P                  &kp MINUS
+&kp CAPSLOCK           &kp A                  &kp S                  &kp D                  &kp F                  &kp G                            &kp H                  &kp J                  &kp K                  &kp L                  &kp SEMICOLON          &kp SINGLE_QUOTE
+&kp LEFT_SHIFT         &kp Z                  &kp X                  &kp C                  &kp V                  &kp B                            &kp N                  &kp M                  &kp COMMA              &kp PERIOD             &kp SLASH              &kp RIGHT_CONTROL
+                                                                     &kp ESCAPE             &kp DELETE             &kp SPACE                        &kp RETURN             &kp BACKSPACE          &kp ESCAPE
             >;
         };
 
@@ -376,10 +388,10 @@
 // |  CTL |  Z  |  X  |  C  |  V  |  B  |       |  N  |  M  |  ,  |  .  |  /  | CTL  |
 //                    | ESC | ALT | SPC |       | RET | BSP | ESC |
             bindings = <
-    &kp TAB                &kp Q                  &kp W                  &kp E                  &kp R                  &kp T                            &kp Y                  &kp U                  &kp I                  &kp O                  &kp P                  &kp MINUS
-    &kp LEFT_SHIFT         &kp A                  &kp S                  &kp D                  &kp F                  &kp G                            &kp H                  &hrm_ri RSHFT J        &hrm_r RCTRL K         &hrm_r RALT L          &hrm_r RGUI SEMICOLON  &kp SINGLE_QUOTE
-    &kp LEFT_CONTROL       &kp Z                  &kp X                  &kp C                  &kp V                  &kp B                            &kp N                  &kp M                  &kp COMMA              &kp PERIOD             &kp SLASH              &sk_qr RIGHT_CONTROL
-                                                                         &thumb GUTILS ESCAPE   &kp LEFT_ALT           &kp SPACE                        &thumb EDIT RETURN     &thumb SYM BACKSPACE   &thumb MEDIA ESCAPE
+&kp TAB                &kp Q                  &kp W                  &kp E                  &kp R                  &kp T                            &kp Y                  &kp U                  &kp I                  &kp O                  &kp P                  &kp MINUS
+&kp LEFT_SHIFT         &kp A                  &kp S                  &kp D                  &kp F                  &kp G                            &kp H                  &hrm_ri RSHFT J        &hrm_r RCTRL K         &hrm_r RALT L          &hrm_r RGUI SEMICOLON  &kp SINGLE_QUOTE
+&kp LEFT_CONTROL       &kp Z                  &kp X                  &kp C                  &kp V                  &kp B                            &kp N                  &kp M                  &kp COMMA              &kp PERIOD             &kp SLASH              &sk_qr RIGHT_CONTROL
+                                                                     &thumb GUTILS ESCAPE   &kp LEFT_ALT           &kp SPACE                        &thumb EDIT RETURN     &thumb SYM BACKSPACE   &thumb MEDIA ESCAPE
             >;
         };
 
@@ -391,10 +403,10 @@
 // |  GUI |  6  |  7  |  8  |  9  |  0  |       | ___ | ___ | ___ | ___ | ___ | ___  |
 //                    | ___ | ___ | ___ |       | ___ | ___ | ___ |
             bindings = <
-    &kp F12                &kp F1                 &kp F2                 &kp F3                 &kp F4                 &kp F5                           &kp F6                 &kp F7                 &kp F8                 &kp F9                 &kp F10                &kp F11
-    &kp CAPSLOCK           &kp N1                 &kp N2                 &kp N3                 &kp N4                 &kp N5                           &kp LEFT               &kp DOWN               &kp UP                 &kp RIGHT              &trans                 &trans
-    &kp LEFT_GUI           &kp N6                 &kp N7                 &kp N8                 &kp N9                 &kp N0                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
-                                                                         &trans                 &trans                 &trans                           &trans                 &trans                 &trans
+&kp F12                &kp F1                 &kp F2                 &kp F3                 &kp F4                 &kp F5                           &kp F6                 &kp F7                 &kp F8                 &kp F9                 &kp F10                &kp F11
+&kp CAPSLOCK           &kp N1                 &kp N2                 &kp N3                 &kp N4                 &kp N5                           &kp LEFT               &kp DOWN               &kp UP                 &kp RIGHT              &trans                 &trans
+&kp LEFT_GUI           &kp N6                 &kp N7                 &kp N8                 &kp N9                 &kp N0                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
+                                                                     &trans                 &trans                 &trans                           &trans                 &trans                 &trans
             >;
         };
 
@@ -406,10 +418,10 @@
 // |  ___ | ___ | ___ | ___ | ___ | ___ |       |  0  |  1  |  2  |  3  | ___ | ___  |
 //                    | ___ | ___ | ___ |       | ___ | ___ | ___ |
             bindings = <
-    &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &kp N7                 &kp N8                 &kp N9                 &trans                 &trans
-    &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &kp N4                 &kp N5                 &kp N6                 &trans                 &trans
-    &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &kp N0                 &kp N1                 &kp N2                 &kp N3                 &trans                 &trans
-                                                                         &trans                 &trans                 &trans                           &trans                 &trans                 &trans
+&trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &kp N7                 &kp N8                 &kp N9                 &trans                 &trans
+&trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &kp N4                 &kp N5                 &kp N6                 &trans                 &trans
+&trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &kp N0                 &kp N1                 &kp N2                 &kp N3                 &trans                 &trans
+                                                                     &trans                 &trans                 &trans                           &trans                 &trans                 &trans
             >;
         };
 
@@ -421,10 +433,10 @@
 // |   @  |  -  |  |  |  <  |  >  |  =  |       |  ~  |  $  |  ^  |  ;  | ___ | ___  |
 //                    | ___ | ___ | ___ |       | ___ | ___ | ___ |
             bindings = <
-    &kp AMPERSAND          &kp HASH               &kp PERCENT            &kp LEFT_BRACE         &kp RIGHT_BRACE        &kp DOUBLE_QUOTES                &kp GRAVE              &kp MINUS              &kp PLUS               &kp SLASH              &kp ASTERISK           &trans
-    &kp COLON              &kp UNDERSCORE         &kp LEFT_BRACKET       &kp LEFT_PARENTHESIS   &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACKET                &kp BACKSPACE          &kp QUESTION           &kp EXCLAMATION        &kp BACKSLASH          &kp SINGLE_QUOTE       &trans
-    &kp AT_SIGN            &kp MINUS              &kp PIPE               &kp LESS_THAN          &kp GREATER_THAN       &kp EQUAL                        &kp TILDE              &kp DOLLAR             &kp CARET              &kp SEMICOLON          &trans                 &trans
-                                                                         &trans                 &trans                 &trans                           &trans                 &trans                 &trans
+&kp AMPERSAND          &kp HASH               &kp PERCENT            &kp LEFT_BRACE         &kp RIGHT_BRACE        &kp DOUBLE_QUOTES                &kp GRAVE              &kp MINUS              &kp PLUS               &kp SLASH              &kp ASTERISK           &trans
+&kp COLON              &kp UNDERSCORE         &kp LEFT_BRACKET       &kp LEFT_PARENTHESIS   &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACKET                &kp BACKSPACE          &kp QUESTION           &kp EXCLAMATION        &kp BACKSLASH          &kp SINGLE_QUOTE       &trans
+&kp AT_SIGN            &kp MINUS              &kp PIPE               &kp LESS_THAN          &kp GREATER_THAN       &kp EQUAL                        &kp TILDE              &kp DOLLAR             &kp CARET              &kp SEMICOLON          &trans                 &trans
+                                                                     &trans                 &trans                 &trans                           &trans                 &trans                 &trans
             >;
         };
 
@@ -436,10 +448,10 @@
 // |  ___ | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ___  |
 //                    | ___ | ___ | ___ |       | ___ | ___ | ___ |
             bindings = <
-    &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &kp HOME               &kp PAGE_DOWN          &kp PAGE_UP            &kp END                &trans                 &kp K_CONTEXT_MENU
-    &trans                 &kp LEFT_GUI           &kp LEFT_ALT           &kp LEFT_CONTROL       &kp LEFT_SHIFT         &trans                           &kp LEFT               &kp DOWN               &kp UP                 &kp RIGHT              &kp RIGHT_GUI          &trans
-    &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
-                                                                         &trans                 &trans                 &trans                           &trans                 &trans                 &trans
+&trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &kp HOME               &kp PAGE_DOWN          &kp PAGE_UP            &kp END                &trans                 &kp K_CONTEXT_MENU
+&trans                 &kp LEFT_GUI           &kp LEFT_ALT           &kp LEFT_CONTROL       &kp LEFT_SHIFT         &trans                           &kp LEFT               &kp DOWN               &kp UP                 &kp RIGHT              &kp RIGHT_GUI          &trans
+&trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
+                                                                     &trans                 &trans                 &trans                           &trans                 &trans                 &trans
             >;
         };
 
@@ -451,10 +463,10 @@
 // |  ___ | ___ | ___ | ___ | ___ | ___ |       | ___ | COM | CAL | MAI | ___ | ___  |
 //                    | ___ | ___ | ___ |       | ___ | ___ | ___ |
             bindings = <
-    &trans                 &kp C_MUTE             &kp C_BRIGHTNESS_DEC   &kp C_VOLUME_DOWN      &kp C_VOLUME_UP        &kp C_BRIGHTNESS_INC             &trans                 &kp C_AC_BOOKMARKS     &trans                 &trans                 &trans                 &trans
-    &kp C_STOP             &kp C_PLAY_PAUSE       &kp C_PREVIOUS         &kp C_REWIND           &kp C_FAST_FORWARD     &kp C_NEXT                       &kp C_AC_BACK          &kp C_AC_SEARCH        &kp C_AC_HOME          &kp C_AC_FORWARD       &kp C_AC_REFRESH       &kp C_AC_STOP
-    &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &kp C_AL_MY_COMPUTER   &kp C_AL_CALCULATOR    &kp C_AL_EMAIL         &trans                 &trans
-                                                                         &trans                 &trans                 &trans                           &trans                 &trans                 &trans
+&trans                 &kp C_MUTE             &kp C_BRIGHTNESS_DEC   &kp C_VOLUME_DOWN      &kp C_VOLUME_UP        &kp C_BRIGHTNESS_INC             &trans                 &kp C_AC_BOOKMARKS     &trans                 &trans                 &trans                 &trans
+&kp C_STOP             &kp C_PLAY_PAUSE       &kp C_PREVIOUS         &kp C_REWIND           &kp C_FAST_FORWARD     &kp C_NEXT                       &kp C_AC_BACK          &kp C_AC_SEARCH        &kp C_AC_HOME          &kp C_AC_FORWARD       &kp C_AC_REFRESH       &kp C_AC_STOP
+&trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &kp C_AL_MY_COMPUTER   &kp C_AL_CALCULATOR    &kp C_AL_EMAIL         &trans                 &trans
+                                                                     &trans                 &trans                 &trans                           &trans                 &trans                 &trans
             >;
         };
 
@@ -466,10 +478,10 @@
 // |  ___ | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ___  |
 //                    | ___ | ___ | ___ |       | ___ | ___ | ___ |
             bindings = <
-    &kp ESCAPE             &trans                 &trans                 &trans                 &trans                 &trans                           &kp RC(Z)              &trans                 &trans                 &kp LC(Y)              &trans                 &kp ESCAPE
-    &trans                 &kp LEFT_GUI           &kp LEFT_ALT           &kp LEFT_CONTROL       &kp LEFT_SHIFT         &kp DELETE                       &kp BACKSPACE          &kp INSERT             &kp TAB                &kp DELETE             &trans                 &trans
-    &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
-                                                                         &trans                 &trans                 &trans                           &trans                 &trans                 &trans
+&kp ESCAPE             &trans                 &trans                 &trans                 &trans                 &trans                           &kp RC(Z)              &trans                 &trans                 &kp LC(Y)              &trans                 &kp ESCAPE
+&trans                 &kp LEFT_GUI           &kp LEFT_ALT           &kp LEFT_CONTROL       &kp LEFT_SHIFT         &kp DELETE                       &kp BACKSPACE          &kp INSERT             &kp TAB                &kp DELETE             &trans                 &trans
+&trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
+                                                                     &trans                 &trans                 &trans                           &trans                 &trans                 &trans
             >;
         };
 
@@ -481,10 +493,10 @@
 // |  ___ | ___ | ___ | ___ | ___ | ___ |       |  0  |  1  |  2  |  3  |  .  | ENT  |
 //                    | ___ | ___ | ___ |       | ___ | ___ | ___ |
             bindings = <
-    &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &kp KP_NUMLOCK         &kp KP_N7              &kp KP_N8              &kp KP_N9              &kp KP_DIVIDE          &kp KP_MULTIPLY
-    &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &kp BACKSPACE          &kp KP_N4              &kp KP_N5              &kp KP_N6              &kp KP_MINUS           &kp KP_PLUS
-    &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &kp KP_N0              &kp KP_N1              &kp KP_N2              &kp KP_N3              &kp KP_DOT             &kp KP_ENTER
-                                                                         &trans                 &trans                 &trans                           &trans                 &trans                 &trans
+&trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &kp KP_NUMLOCK         &kp KP_N7              &kp KP_N8              &kp KP_N9              &kp KP_DIVIDE          &kp KP_MULTIPLY
+&trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &kp BACKSPACE          &kp KP_N4              &kp KP_N5              &kp KP_N6              &kp KP_MINUS           &kp KP_PLUS
+&trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &kp KP_N0              &kp KP_N1              &kp KP_N2              &kp KP_N3              &kp KP_DOT             &kp KP_ENTER
+                                                                     &trans                 &trans                 &trans                           &trans                 &trans                 &trans
             >;
         };
 
@@ -496,10 +508,10 @@
 // | @spec| <-> | <|> | <<>>| ___ | <=> |       | <~> | ___ | ___ | ___ | ___ | ___  |
 //                    | ___ | ___ | ___ |       | ___ | ___ | ___ |
             bindings = <
-    &trans                 &m_ex_inter            &m_ex_map              &m_braces              &trans                 &m_ex_full_inter                 &trans                 &trans                 &trans                 &trans                 &trans                 &trans
-    &m_ex_type_deli        &trans                 &m_brackets            &m_parens              &kp LEFT_SHIFT         &trans                           &kp BACKSPACE          &kp RIGHT_SHIFT        &trans                 &trans                 &trans                 &trans
-    &mm_ex_specs           &mm_arrows             &mm_pipes              &mm_chevrons           &trans                 &mm_fat_arrows                   &mm_tilde_arrows       &trans                 &trans                 &trans                 &trans                 &trans
-                                                                         &trans                 &trans                 &trans                           &trans                 &trans                 &trans
+&trans                 &m_ex_interp           &m_ex_map              &m_braces              &trans                 &m_ex_full_interp                &trans                 &trans                 &trans                 &trans                 &trans                 &trans
+&m_ex_type_delim       &trans                 &m_brackets            &m_parens              &kp LEFT_SHIFT         &trans                           &kp BACKSPACE          &kp RIGHT_SHIFT        &trans                 &trans                 &trans                 &trans
+&mm_ex_specs           &mm_arrows             &mm_pipes              &mm_chevrons           &trans                 &mm_fat_arrows                   &mm_tilde_arrows       &trans                 &trans                 &trans                 &trans                 &trans
+                                                                     &trans                 &trans                 &trans                           &trans                 &trans                 &trans
             >;
         };
 
@@ -511,10 +523,10 @@
 // |  ___ | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ___  |
 //                    | ___ | ___ | ___ |       | ___ | ___ | ___ |
             bindings = <
-    &kp F12                &kp F1                 &kp F2                 &kp F3                 &kp F4                 &kp F5                           &kp F6                 &kp F7                 &kp F8                 &kp F9                 &kp F10                &kp F11
-    &kp CAPSLOCK           &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &kp PRINTSCREEN        &trans                 &trans                 &kp SCROLLLOCK         &kp PAUSE_BREAK
-    &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
-                                                                         &trans                 &trans                 &trans                           &trans                 &trans                 &trans
+&kp F12                &kp F1                 &kp F2                 &kp F3                 &kp F4                 &kp F5                           &kp F6                 &kp F7                 &kp F8                 &kp F9                 &kp F10                &kp F11
+&kp CAPSLOCK           &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &kp PRINTSCREEN        &trans                 &trans                 &kp SCROLLLOCK         &kp PAUSE_BREAK
+&trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
+                                                                     &trans                 &trans                 &trans                           &trans                 &trans                 &trans
             >;
         };
 
@@ -526,10 +538,10 @@
 // |  RES | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | RES  |
 //                    | ___ | ___ | ___ |       | ___ | ___ | ___ |
             bindings = <
-    &kp C_POWER            &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &kp C_POWER
-    &kp C_SLEEP            &trans                 &trans                 &trans                 &trans                 &trans                           &kp C_AL_LOGOFF        &kp C_AL_LOCK          &trans                 &trans                 &trans                 &kp C_SLEEP
-    &kp C_RESET            &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &kp C_RESET
-                                                                         &trans                 &trans                 &trans                           &trans                 &trans                 &trans
+&kp C_POWER            &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &kp C_POWER
+&kp C_SLEEP            &trans                 &trans                 &trans                 &trans                 &trans                           &kp C_AL_LOGOFF        &kp C_AL_LOCK          &trans                 &trans                 &trans                 &kp C_SLEEP
+&kp C_RESET            &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &kp C_RESET
+                                                                     &trans                 &trans                 &trans                           &trans                 &trans                 &trans
             >;
         };
 
@@ -541,10 +553,10 @@
 // | BRES | BD1 | BD2 | BD3 | BD4 | BD5 |       | ___ | ___ | ___ | ___ | ___ | ___  |
 //                    | ___ | ___ | ___ |       | ___ | ___ | ___ |
             bindings = <
-    &trans                 &trans                 &bt BT_PRV             &trans                 &trans                 &bt BT_NXT                       &trans                 &trans                 &trans                 &trans                 &trans                 &trans
-    &bt BT_CLR             &bt BT_SEL 0           &bt BT_SEL 1           &bt BT_SEL 2           &bt BT_SEL 3           &bt BT_SEL 4                     &trans                 &trans                 &trans                 &trans                 &trans                 &trans
-    &bt BT_CLR_ALL         &bt BT_DISC 0          &bt BT_DISC 1          &bt BT_DISC 2          &bt BT_DISC 3          &bt BT_DISC 4                    &trans                 &trans                 &trans                 &trans                 &trans                 &trans
-                                                                         &trans                 &trans                 &trans                           &trans                 &trans                 &trans
+&trans                 &trans                 &bt BT_PRV             &trans                 &trans                 &bt BT_NXT                       &trans                 &trans                 &trans                 &trans                 &trans                 &trans
+&bt BT_CLR             &bt BT_SEL 0           &bt BT_SEL 1           &bt BT_SEL 2           &bt BT_SEL 3           &bt BT_SEL 4                     &trans                 &trans                 &trans                 &trans                 &trans                 &trans
+&bt BT_CLR_ALL         &bt BT_DISC 0          &bt BT_DISC 1          &bt BT_DISC 2          &bt BT_DISC 3          &bt BT_DISC 4                    &trans                 &trans                 &trans                 &trans                 &trans                 &trans
+                                                                     &trans                 &trans                 &trans                           &trans                 &trans                 &trans
             >;
         };
 
@@ -556,10 +568,10 @@
 // |  RES | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | RES  |
 //                    | ___ | ___ | ___ |       | ___ | ___ | ___ |
             bindings = <
-    &bootloader            &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &bootloader
-    &studio_unlock         &trans                 &trans                 &to GAME               &to BASE               &trans                           &trans                 &to BASE               &to GAME               &trans                 &trans                 &studio_unlock
-    &sys_reset             &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &sys_reset
-                                                                         &trans                 &trans                 &trans                           &trans                 &trans                 &trans
+&bootloader            &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &bootloader
+&studio_unlock         &trans                 &trans                 &to GAME               &to BASE               &trans                           &trans                 &to BASE               &to GAME               &trans                 &trans                 &studio_unlock
+&sys_reset             &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &sys_reset
+                                                                     &trans                 &trans                 &trans                           &trans                 &trans                 &trans
             >;
         };
 
