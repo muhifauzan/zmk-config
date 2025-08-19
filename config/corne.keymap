@@ -23,23 +23,25 @@
 #define RIGHT_HAND RIGHT_KEYS RIGHT_THUMBS
 
 #define BASE 0
-#define PLAIN 1
-#define GAME 2
-#define GAMECHAT 3
-#define GAMEUTILS 4
-#define NUMBER 5
-#define SYMBOL 6
-#define NAVIGATION 7
-#define MEDIA 8
-#define EDIT 9
-#define NUMPAD 10
-#define MACRO 11
-#define SYSUTILS 12
-#define SYSTEM 13
-#define BLUETOOTH 14
-#define KEYSYS 15
-#define SANDBOX 16
+#define BASEPLAIN 1
+#define PLAIN 2
+#define GAME 3
+#define GAMECHAT 4
+#define GAMEUTILS 5
+#define NUMBER 6
+#define SYMBOL 7
+#define NAVIGATION 8
+#define MEDIA 9
+#define EDIT 10
+#define NUMPAD 11
+#define MACRO 12
+#define SYSUTILS 13
+#define SYSTEM 14
+#define BLUETOOTH 15
+#define KEYSYS 16
+#define SANDBOX 17
 
+#define BPLAIN BASEPLAIN
 #define GCHAT GAMECHAT
 #define GUTILS GAMEUTILS
 #define NUM NUMBER
@@ -383,17 +385,32 @@
             >;
         };
 
-        plain_layer {
-            display-name = "Plain";
+        base_plain_layer {
+            display-name = "B Plain";
 // -----------------------------------------------------------------------------------
 // |  ___ | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ___  |
 // |  CAP |  A  |  S  |  D  |  F  | ___ |       | ___ |  J  |  K  |  L  |  ;  |  '   |
 // |  SFT | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | CTL  |
-//                    | ___ | ___ | ___ |       | ___ | ___ | ___ |
+//                    | ESC | ALT | SPC |       | RET | BSP | GUI |
             bindings = <
 &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
 &kp CAPSLOCK           &kp A                  &kp S                  &kp D                  &kp F                  &trans                           &trans                 &kp J                  &kp K                  &kp L                  &kp SEMICOLON          &kp SINGLE_QUOTE
 &kp LEFT_SHIFT         &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &kp RIGHT_CONTROL
+                                                                     &kp ESCAPE             &kp LEFT_ALT           &kp SPACE                        &kp RETURN             &kp BACKSPACE          &kp RIGHT_GUI
+            >;
+        };
+
+        plain_layer {
+            display-name = "Plain";
+// -----------------------------------------------------------------------------------
+// |  ___ | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ___  |
+// |  ___ | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ___  |
+// |  ___ | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ___  |
+//                    | ___ | ___ | ___ |       | ___ | ___ | ___ |
+            bindings = <
+&trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
+&trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
+&trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
                                                                      &trans                 &trans                 &trans                           &trans                 &trans                 &trans
             >;
         };
@@ -402,14 +419,14 @@
             display-name = "Game";
 // -----------------------------------------------------------------------------------
 // |  ___ | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ___  |
-// |  SFT |  A  |  S  |  D  |  F  | ___ |       | ___ |  J  |  K  |  L  |  ;  |  '   |
+// |  SFT | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ___  |
 // |  CTL | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | CHAT |
-//                    | ESC | ALT | SPC |       | RET | BSP | ESC |
+//                    | ESC | ___ | ___ |       | RET | ___ | ESC |
             bindings = <
 &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
-&kp LEFT_SHIFT         &kp A                  &kp S                  &kp D                  &kp F                  &trans                           &trans                 &kp J                  &kp K                  &kp L                  &kp SEMICOLON          &kp SINGLE_QUOTE
+&kp LEFT_SHIFT         &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
 &kp LEFT_CONTROL       &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &to GAMECHAT
-                                                                     &thumb GUTILS ESCAPE   &kp LEFT_ALT           &kp SPACE                        &m_return_gchat_o      &kp BACKSPACE          &kp ESCAPE
+                                                                     &thumb GUTILS ESCAPE   &trans                 &trans                           &m_return_gchat_o      &trans                 &kp ESCAPE
             >;
         };
 
@@ -620,6 +637,16 @@
 / {
     conditional_layers {
         compatible = "zmk,conditional-layers";
+
+        plain_layer {
+            if-layers = <PLAIN>;
+            then-layer = <BASEPLAIN>;
+        };
+
+        game_layer {
+            if-layers = <GAME>;
+            then-layer = <BASEPLAIN>;
+        }
 
         numpad_layer {
             if-layers = <NUMBER EDIT>;
