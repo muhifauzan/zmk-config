@@ -24,24 +24,26 @@
 
 #define BASE 0
 #define BASEPLAIN 1
-#define PLAIN 2
-#define GAME 3
-#define GAMECHAT 4
-#define GAMEUTILS 5
-#define NUMBER 6
-#define SYMBOL 7
-#define NAVIGATION 8
-#define MEDIA 9
-#define EDIT 10
-#define NUMPAD 11
-#define MACRO 12
-#define SYSUTILS 13
-#define SYSTEM 14
-#define BLUETOOTH 15
-#define KEYSYS 16
-#define SANDBOX 17
+#define BASEEDIT 2
+#define PLAIN 3
+#define EDIT 4
+#define GAME 5
+#define GAMECHAT 6
+#define GAMEUTILS 7
+#define NUMBER 8
+#define SYMBOL 9
+#define NAVIGATION 10
+#define MEDIA 11
+#define NUMPAD 12
+#define MACRO 13
+#define SYSUTILS 14
+#define SYSTEM 15
+#define BLUETOOTH 16
+#define KEYSYS 17
+#define SANDBOX 18
 
 #define BPLAIN BASEPLAIN
+#define BEDIT BASEEDIT
 #define GCHAT GAMECHAT
 #define GUTILS GAMEUTILS
 #define NUM NUMBER
@@ -400,8 +402,38 @@
             >;
         };
 
+        base_edit_layer {
+            display-name = "B Edit";
+// -----------------------------------------------------------------------------------
+// |  ESC | ___ | ___ | ___ | ___ | ___ |       | UND | ___ | ___ | RED | ___ | ESC  |
+// |  ___ | GUI | ALT | CTL | SFT | DEL |       | BSP | INS | TAB | DEL | GUI | ___  |
+// |  ___ | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ___  |
+//                    | ___ | ___ | ___ |       | ___ | ___ | ___ |
+            bindings = <
+&kp ESCAPE             &trans                 &trans                 &trans                 &trans                 &trans                           &kp RC(Z)              &trans                 &trans                 &kp LC(Y)              &trans                 &kp ESCAPE
+&trans                 &kp LEFT_GUI           &kp LEFT_ALT           &kp LEFT_CONTROL       &kp LEFT_SHIFT         &kp DELETE                       &kp BACKSPACE          &hrm_ri RSHFT INSERT   &hrm_r RCTRL TAB       &hrm_r RALT DELETE     &kp RIGHT_GUI          &trans
+&trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
+                                                                     &trans                 &trans                 &trans                           &trans                 &trans                 &trans
+            >;
+        };
+
         plain_layer {
             display-name = "Plain";
+// -----------------------------------------------------------------------------------
+// |  ___ | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ___  |
+// |  ___ | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ___  |
+// |  ___ | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ___  |
+//                    | ___ | ___ | ___ |       | ___ | ___ | ___ |
+            bindings = <
+&trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
+&trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
+&trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
+                                                                     &trans                 &trans                 &trans                           &trans                 &trans                 &trans
+            >;
+        };
+
+        edit_layer {
+            display-name = "Edit";
 // -----------------------------------------------------------------------------------
 // |  ___ | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ___  |
 // |  ___ | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ___  |
@@ -479,12 +511,12 @@
             display-name = "Symbol";
 // -----------------------------------------------------------------------------------
 // |   &  |  #  |  %  |  {  |  }  |  "  |       |  `  |  -  |  +  |  /  |  *  | ___  |
-// |   :  |  _  |  [  |  (  |  )  |  ]  |       | BSP |  ?  |  !  |  \  |  '  | ___  |
+// |   :  |  _  |  [  |  (  |  )  |  ]  |       | ___ |  ?  |  !  |  \  |  '  | ___  |
 // |   @  |  -  |  |  |  <  |  >  |  =  |       |  ~  |  $  |  ^  |  ;  | ___ | ___  |
 //                    | ___ | ___ | ___ |       | ___ | ___ | ___ |
             bindings = <
 &kp AMPERSAND          &kp HASH               &kp PERCENT            &kp LEFT_BRACE         &kp RIGHT_BRACE        &kp DOUBLE_QUOTES                &kp GRAVE              &kp MINUS              &kp PLUS               &kp SLASH              &kp ASTERISK           &trans
-&kp COLON              &kp UNDERSCORE         &kp LEFT_BRACKET       &kp LEFT_PARENTHESIS   &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACKET                &kp BACKSPACE          &kp QUESTION           &kp EXCLAMATION        &kp BACKSLASH          &kp SINGLE_QUOTE       &trans
+&kp COLON              &kp UNDERSCORE         &kp LEFT_BRACKET       &kp LEFT_PARENTHESIS   &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACKET                &trans                 &kp QUESTION           &kp EXCLAMATION        &kp BACKSLASH          &kp SINGLE_QUOTE       &trans
 &kp AT_SIGN            &kp MINUS              &kp PIPE               &kp LESS_THAN          &kp GREATER_THAN       &kp EQUAL                        &kp TILDE              &kp DOLLAR             &kp CARET              &kp SEMICOLON          &trans                 &trans
                                                                      &trans                 &trans                 &trans                           &trans                 &trans                 &trans
             >;
@@ -520,31 +552,16 @@
             >;
         };
 
-        edit_layer {
-            display-name = "Edit";
-// -----------------------------------------------------------------------------------
-// |  ESC | ___ | ___ | ___ | ___ | ___ |       | UND | ___ | ___ | RED | ___ | ESC  |
-// |  ___ | GUI | ALT | CTL | SFT | DEL |       | BSP | INS | TAB | DEL | ___ | ___  |
-// |  ___ | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ___  |
-//                    | ___ | ___ | ___ |       | ___ | ___ | ___ |
-            bindings = <
-&kp ESCAPE             &trans                 &trans                 &trans                 &trans                 &trans                           &kp RC(Z)              &trans                 &trans                 &kp LC(Y)              &trans                 &kp ESCAPE
-&trans                 &kp LEFT_GUI           &kp LEFT_ALT           &kp LEFT_CONTROL       &kp LEFT_SHIFT         &kp DELETE                       &kp BACKSPACE          &kp INSERT             &kp TAB                &kp DELETE             &trans                 &trans
-&trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
-                                                                     &trans                 &trans                 &trans                           &trans                 &trans                 &trans
-            >;
-        };
-
         numpad_layer {
             display-name = "Numpad";
 // -----------------------------------------------------------------------------------
 // |  ___ | ___ | ___ | ___ | ___ | ___ |       | NUM |  7  |  8  |  9  |  /  |  *   |
-// |  ___ | ___ | ___ | ___ | ___ | ___ |       | BSP |  4  |  5  |  6  |  -  |  +   |
+// |  ___ | ___ | ___ | ___ | ___ | ___ |       | ___ |  4  |  5  |  6  |  -  |  +   |
 // |  ___ | ___ | ___ | ___ | ___ | ___ |       |  0  |  1  |  2  |  3  |  .  | ENT  |
 //                    | ___ | ___ | ___ |       | ___ | ___ | ___ |
             bindings = <
 &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &kp KP_NUMLOCK         &kp KP_N7              &kp KP_N8              &kp KP_N9              &kp KP_DIVIDE          &kp KP_MULTIPLY
-&trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &kp BACKSPACE          &kp KP_N4              &kp KP_N5              &kp KP_N6              &kp KP_MINUS           &kp KP_PLUS
+&trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &kp KP_N4              &kp KP_N5              &kp KP_N6              &kp KP_MINUS           &kp KP_PLUS
 &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &kp KP_N0              &kp KP_N1              &kp KP_N2              &kp KP_N3              &kp KP_DOT             &kp KP_ENTER
                                                                      &trans                 &trans                 &trans                           &trans                 &trans                 &trans
             >;
@@ -554,12 +571,12 @@
             display-name = "Macro";
 // -----------------------------------------------------------------------------------
 // |  ___ | #{} | %{} | {}  | ___ |"#{}"|       | ___ | ___ | ___ | ___ | ___ | ___  |
-// |  ::  | ___ | []  | ()  | SFT | ___ |       | BSP | SFT | ___ | ___ | ___ | ___  |
+// |  ::  | ___ | []  | ()  | SFT | ___ |       | ___ | SFT | ___ | ___ | ___ | ___  |
 // | @spec| <-> | <|> | <<>>| ___ | <=> |       | <~> | ___ | ___ | ___ | ___ | ___  |
 //                    | ___ | ___ | ___ |       | ___ | ___ | ___ |
             bindings = <
 &trans                 &m_ex_interp           &m_ex_map              &m_braces              &trans                 &m_ex_full_interp                &trans                 &trans                 &trans                 &trans                 &trans                 &trans
-&m_ex_type_delim       &trans                 &m_brackets            &m_parens              &kp LEFT_SHIFT         &trans                           &kp BACKSPACE          &kp RIGHT_SHIFT        &trans                 &trans                 &trans                 &trans
+&m_ex_type_delim       &trans                 &m_brackets            &m_parens              &kp LEFT_SHIFT         &trans                           &trans                 &kp RIGHT_SHIFT        &trans                 &trans                 &trans                 &trans
 &mm_ex_specs           &mm_arrows             &mm_pipes              &mm_chevrons           &trans                 &mm_fat_arrows                   &mm_tilde_arrows       &trans                 &trans                 &trans                 &trans                 &trans
                                                                      &trans                 &trans                 &trans                           &trans                 &trans                 &trans
             >;
@@ -643,18 +660,33 @@
             then-layer = <BASEPLAIN>;
         };
 
+        edit_layer {
+            if-layers = <EDIT>;
+            then-layer = <BASEEDIT>;
+        };
+
         game_layer {
             if-layers = <GAME>;
             then-layer = <BASEPLAIN>;
-        }
+        };
+
+        number_layer {
+            if-layers = <NUMBER>;
+            then-layer = <BASEEDIT>;
+        };
+
+        symbol_layer {
+            if-layers = <SYMBOL>;
+            then-layer = <BASEEDIT>;
+        };
 
         numpad_layer {
-            if-layers = <NUMBER EDIT>;
+            if-layers = <EDIT NUMBER>;
             then-layer = <NUMPAD>;
         };
 
         macro_layer {
-            if-layers = <SYMBOL EDIT>;
+            if-layers = <EDIT SYMBOL>;
             then-layer = <MACRO>;
         };
 
@@ -669,17 +701,17 @@
         };
 
         bluetooth_layer {
-            if-layers = <SYSUTILS EDIT>;
+            if-layers = <EDIT SYSUTILS>;
             then-layer = <BLUETOOTH>;
         };
 
         keysys_layer_left {
-            if-layers = <NUMBER NAVIGATION EDIT>;
+            if-layers = <EDIT NUMBER NAVIGATION>;
             then-layer = <KEYSYS>;
         };
 
         keysys_layer_right {
-            if-layers = <SYMBOL MEDIA EDIT>;
+            if-layers = <EDIT SYMBOL MEDIA>;
             then-layer = <KEYSYS>;
         };
 
