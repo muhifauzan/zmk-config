@@ -61,7 +61,7 @@
 #define PRIOR_MS 175
 
 #define INDEX_HOLD_MS 185
-#define INDEX_PRIOR_MS 101
+#define INDEX_PRIOR_MS 91
 
 
 
