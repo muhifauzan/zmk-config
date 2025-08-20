@@ -24,9 +24,9 @@
 
 #define BASE 0
 #define BASEPLAIN 1
-#define BASEEDIT 2
+#define BASEALTER 2
 #define PLAIN 3
-#define EDIT 4
+#define ALTER 4
 #define GAME 5
 #define GAMECHAT 6
 #define GAMEUTILS 7
@@ -43,7 +43,7 @@
 #define SANDBOX 18
 
 #define BPLAIN BASEPLAIN
-#define BEDIT BASEEDIT
+#define BALTER BASEALTER
 #define GCHAT GAMECHAT
 #define GUTILS GAMEUTILS
 #define NUM NUMBER
@@ -383,7 +383,7 @@
 &kp TAB                &kp Q                  &kp W                  &kp E                  &kp R                  &kp T                            &kp Y                  &kp U                  &kp I                  &kp O                  &kp P                  &kp MINUS
 &lt_cw PLAIN 0         &hrm_l LGUI A          &hrm_l LALT S          &hrm_l LCTRL D         &hrm_li LSHFT F        &kp G                            &kp H                  &hrm_ri RSHFT J        &hrm_r RCTRL K         &hrm_r RALT L          &hrm_r RGUI SEMICOLON  &c_lt PLAIN SINGLE_QUOTE
 &sk_qr LEFT_SHIFT      &kp Z                  &kp X                  &kp C                  &kp V                  &kp B                            &kp N                  &kp M                  &kp COMMA              &kp PERIOD             &kp SLASH              &sk_qr RIGHT_CONTROL
-                                                                     &thumb NAV ESCAPE      &thumb NUMBER DELETE   &thumb EDIT SPACE                &thumb EDIT RETURN     &thumb SYM BACKSPACE   &thumb MEDIA ESCAPE
+                                                                     &thumb NAV ESCAPE      &thumb NUMBER DELETE   &thumb ALTER SPACE               &thumb ALTER RETURN    &thumb SYM BACKSPACE   &thumb MEDIA ESCAPE
             >;
         };
 
@@ -402,8 +402,8 @@
             >;
         };
 
-        base_edit_layer {
-            display-name = "B Edit";
+        base_alter_layer {
+            display-name = "B Alter";
 // -----------------------------------------------------------------------------------
 // |  ESC | ___ | ___ | ___ | ___ | ___ |       | UND | ___ | ___ | RED | ___ | ESC  |
 // |  ___ | GUI | ALT | CTL | SFT | DEL |       | BSP | INS | TAB | DEL | GUI | ___  |
@@ -432,8 +432,8 @@
             >;
         };
 
-        edit_layer {
-            display-name = "Edit";
+        alter_layer {
+            display-name = "Alter";
 // -----------------------------------------------------------------------------------
 // |  ___ | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ___  |
 // |  ___ | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ___  |
@@ -660,9 +660,9 @@
             then-layer = <BASEPLAIN>;
         };
 
-        edit_layer {
-            if-layers = <EDIT>;
-            then-layer = <BASEEDIT>;
+        alter_layer {
+            if-layers = <ALTER>;
+            then-layer = <BASEALTER>;
         };
 
         game_layer {
@@ -672,21 +672,21 @@
 
         number_layer {
             if-layers = <NUMBER>;
-            then-layer = <BASEEDIT>;
+            then-layer = <BASEALTER>;
         };
 
         symbol_layer {
             if-layers = <SYMBOL>;
-            then-layer = <BASEEDIT>;
+            then-layer = <BASEALTER>;
         };
 
         numpad_layer {
-            if-layers = <EDIT NUMBER>;
+            if-layers = <ALTER NUMBER>;
             then-layer = <NUMPAD>;
         };
 
         macro_layer {
-            if-layers = <EDIT SYMBOL>;
+            if-layers = <ALTER SYMBOL>;
             then-layer = <MACRO>;
         };
 
@@ -701,17 +701,17 @@
         };
 
         bluetooth_layer {
-            if-layers = <EDIT SYSUTILS>;
+            if-layers = <ALTER SYSUTILS>;
             then-layer = <BLUETOOTH>;
         };
 
         keysys_layer_left {
-            if-layers = <EDIT NUMBER NAVIGATION>;
+            if-layers = <ALTER NUMBER NAVIGATION>;
             then-layer = <KEYSYS>;
         };
 
         keysys_layer_right {
-            if-layers = <EDIT SYMBOL MEDIA>;
+            if-layers = <ALTER SYMBOL MEDIA>;
             then-layer = <KEYSYS>;
         };
 
