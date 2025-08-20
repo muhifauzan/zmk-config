@@ -23,12 +23,12 @@
 #define RIGHT_HAND RIGHT_KEYS RIGHT_THUMBS
 
 #define BASE 0
-#define BASEPLAIN 1
-#define BASEALTER 2
-#define PLAIN 3
-#define ALTER 4
-#define GAME 5
-#define GAMECHAT 6
+#define GAMECHAT 1
+#define BASEPLAIN 2
+#define BASEALTER 3
+#define PLAIN 4
+#define ALTER 5
+#define GAME 6
 #define GAMEUTILS 7
 #define NUMBER 8
 #define SYMBOL 9
@@ -42,9 +42,9 @@
 #define KEYSYS 17
 #define SANDBOX 18
 
+#define GCHAT GAMECHAT
 #define BPLAIN BASEPLAIN
 #define BALTER BASEALTER
-#define GCHAT GAMECHAT
 #define GUTILS GAMEUTILS
 #define NUM NUMBER
 #define SYM SYMBOL
@@ -387,6 +387,21 @@
             >;
         };
 
+        game_chat_layer {
+            display-name = "G Chat";
+// -----------------------------------------------------------------------------------
+// |  ___ | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ___  |
+// |  ___ | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ___  |
+// |  ___ | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | GAME |
+//                    | ___ | ___ | ___ |       | RET | ___ | ___ |
+            bindings = <
+&trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
+&trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
+&trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &to GAME
+                                                                     &trans                 &trans                 &trans                           &m_return_gchat_c      &trans                 &trans
+            >;
+        };
+
         base_plain_layer {
             display-name = "B Plain";
 // -----------------------------------------------------------------------------------
@@ -459,21 +474,6 @@
 &kp LEFT_SHIFT         &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
 &kp LEFT_CONTROL       &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &to GAMECHAT
                                                                      &thumb GUTILS ESCAPE   &trans                 &trans                           &m_return_gchat_o      &trans                 &kp ESCAPE
-            >;
-        };
-
-        game_chat_layer {
-            display-name = "G Chat";
-// -----------------------------------------------------------------------------------
-// |  ___ | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ___  |
-// |  ___ | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ___  |
-// |  ___ | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | GAME |
-//                    | ___ | ___ | ___ |       | RET | ___ | ___ |
-            bindings = <
-&trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
-&trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
-&trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &to GAME
-                                                                     &trans                 &trans                 &trans                           &m_return_gchat_c      &trans                 &trans
             >;
         };
 
