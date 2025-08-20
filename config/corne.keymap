@@ -23,13 +23,13 @@
 #define RIGHT_HAND RIGHT_KEYS RIGHT_THUMBS
 
 #define BASE 0
-#define GAMECHAT 1
-#define BASEPLAIN 2
-#define BASEALTER 3
+#define GAME_CHAT 1
+#define BASE_PLAIN 2
+#define BASE_ALTER 3
 #define PLAIN 4
 #define ALTER 5
 #define GAME 6
-#define GAMEUTILS 7
+#define GAME_UTILS 7
 #define NUMBER 8
 #define SYMBOL 9
 #define NAVIGATION 10
@@ -42,10 +42,10 @@
 #define KEYSYS 17
 #define SANDBOX 18
 
-#define GCHAT GAMECHAT
-#define BPLAIN BASEPLAIN
-#define BALTER BASEALTER
-#define GUTILS GAMEUTILS
+#define GCHAT GAME_CHAT
+#define BPLN BASE_PLAIN
+#define BALT BASE_ALTER
+#define GUTLS GAME_UTILS
 #define NUM NUMBER
 #define SYM SYMBOL
 #define NAV NAVIGATION
@@ -192,7 +192,7 @@
         m_return_gchat_o: macro_return_game_chat_open {
           compatible = "zmk,behavior-macro";
           #binding-cells = <0>;
-          bindings = <&kp RETURN &to GAMECHAT>;
+          bindings = <&kp RETURN &to GAME_CHAT>;
         };
 
         m_return_gchat_c: macro_return_game_chat_send_close {
@@ -472,8 +472,8 @@
             bindings = <
 &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
 &kp LEFT_SHIFT         &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
-&kp LEFT_CONTROL       &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &to GAMECHAT
-                                                                     &thumb GUTILS ESCAPE   &trans                 &trans                           &m_return_gchat_o      &trans                 &kp ESCAPE
+&kp LEFT_CONTROL       &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &to GAME_CHAT
+                                                                     &thumb GUTLS ESCAPE    &trans                 &trans                           &m_return_gchat_o      &trans                 &kp ESCAPE
             >;
         };
 
@@ -657,32 +657,32 @@
 
         plain_layer {
             if-layers = <PLAIN>;
-            then-layer = <BASEPLAIN>;
+            then-layer = <BASE_PLAIN>;
         };
 
         alter_layer {
             if-layers = <ALTER>;
-            then-layer = <BASEALTER>;
+            then-layer = <BASE_ALTER>;
         };
 
         game_layer {
             if-layers = <GAME>;
-            then-layer = <BASEPLAIN>;
+            then-layer = <BASE_PLAIN>;
         };
 
         number_layer {
             if-layers = <NUMBER>;
-            then-layer = <BASEALTER>;
+            then-layer = <BASE_ALTER>;
         };
 
         symbol_layer {
             if-layers = <SYMBOL>;
-            then-layer = <BASEALTER>;
+            then-layer = <BASE_ALTER>;
         };
 
         navigation_layer {
             if-layers = <NAVIGATION>;
-            then-layer = <BASEALTER>;
+            then-layer = <BASE_ALTER>;
         };
 
         numpad_layer {
