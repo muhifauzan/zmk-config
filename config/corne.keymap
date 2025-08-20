@@ -525,14 +525,14 @@
         navigation_layer {
             display-name = "Nav";
 // -----------------------------------------------------------------------------------
-// |  ___ | ___ | ___ | ___ | ___ | ___ |       | HOM | PDN | PUP | END | ___ | CMN  |
-// |  ___ | GUI | ALT | CTL | SFT | ___ |       |  ←  |  ↓  |  ↑  |  →  | GUI | ___  |
-// |  ___ | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ___  |
+// |  ___ | ___ | T ← | ___ | ___ | T → |       | HOM | PDN | PUP | END | ___ | CMN  |
+// |  ___ | ___ | ___ | ___ | ___ | ___ |       |  ←  |  ↓  |  ↑  |  →  | GUI | ___  |
+// |  ___ | ___ | ___ | ___ | ___ | ___ |       | W ← | W ↓ | W ↑ | W → | ___ | ___  |
 //                    | ___ | ___ | ___ |       | ___ | ___ | ___ |
             bindings = <
-&trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &kp HOME               &kp PAGE_DOWN          &kp PAGE_UP            &kp END                &trans                 &kp K_CONTEXT_MENU
-&trans                 &kp LEFT_GUI           &kp LEFT_ALT           &kp LEFT_CONTROL       &kp LEFT_SHIFT         &trans                           &kp LEFT               &kp DOWN               &kp UP                 &kp RIGHT              &kp RIGHT_GUI          &trans
-&trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
+&trans                 &trans                 &kp LC(PAGE_UP)        &trans                 &trans                 &kp LC(PAGE_DOWN)                &kp HOME               &kp PAGE_DOWN          &kp PAGE_UP            &kp END                &trans                 &kp K_CONTEXT_MENU
+&trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &kp LEFT               &kp DOWN               &kp UP                 &kp RIGHT              &kp RIGHT_GUI          &trans
+&trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &kp LC(LEFT)           &kp LC(END)            &kp LC(HOME)           &kp LC(RIGHT)          &trans                 &trans
                                                                      &trans                 &trans                 &trans                           &trans                 &trans                 &trans
             >;
         };
@@ -677,6 +677,11 @@
 
         symbol_layer {
             if-layers = <SYMBOL>;
+            then-layer = <BASEALTER>;
+        };
+
+        navigation_layer {
+            if-layers = <NAVIGATION>;
             then-layer = <BASEALTER>;
         };
 
