@@ -184,16 +184,16 @@
 
         // Game
 
-        m_return_gchat_o: macro_return_game_chat_open {
-          compatible = "zmk,behavior-macro";
-          #binding-cells = <0>;
-          bindings = <&kp RETURN &to GAME_CHAT>;
+        m_tap_gchat_o: macro_tap_game_chat_open {
+          compatible = "zmk,behavior-macro-one-param";
+          #binding-cells = <1>;
+          bindings = <&macro_param_1to1>, <&kp MACRO_PLACEHOLDER &to GAME_CHAT>;
         };
 
-        m_return_gchat_c: macro_return_game_chat_send_close {
-          compatible = "zmk,behavior-macro";
-          #binding-cells = <0>;
-          bindings = <&kp RETURN &to GAME>;
+        m_tap_gchat_c: macro_tap_game_chat_close {
+          compatible = "zmk,behavior-macro-one-param";
+          #binding-cells = <1>;
+          bindings = <&macro_param_1to1>, <&kp MACRO_PLACEHOLDER &to GAME>;
         };
     };
 };
@@ -403,12 +403,12 @@
 // |  ___ | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ___  |
 // |  ___ | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ___  |
 // |  ___ | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | GAME |
-//                    | ___ | ___ | ___ |       | RET | ___ | ___ |
+//                    | ESC | ___ | ___ |       | RET | ___ | ESC |
             bindings = <
 &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
 &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
 &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &to GAME
-                                                                     &trans                 &trans                 &trans                           &m_return_gchat_c      &trans                 &trans
+                                                                     &m_tap_gchat_c ESCAPE  &trans                 &trans                           &m_tap_gchat_c RETURN  &trans                 &m_tap_gchat_c ESCAPE
             >;
         };
 
@@ -483,7 +483,7 @@
 &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
 &kp LEFT_SHIFT         &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
 &kp LEFT_CONTROL       &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &to GAME_CHAT
-                                                                     &thumb GUTLS ESCAPE    &trans                 &trans                           &m_return_gchat_o      &trans                 &kp ESCAPE
+                                                                     &thumb GUTLS ESCAPE    &trans                 &trans                           &m_tap_gchat_o RETURN  &trans                 &kp ESCAPE
             >;
         };
 
