@@ -58,12 +58,11 @@
 
 #define HOLD_MS 275
 #define TAP_HOLD_MS 175
+#define COMBO_TAP_MS 51
 #define PRIOR_MS 175
 
 #define INDEX_HOLD_MS 185
 #define INDEX_PRIOR_MS 91
-
-
 
 / {
     macros {
@@ -139,8 +138,6 @@
             bindings = <&kp LESS_THAN &kp PIPE &kp SPACE>;
         };
 
-
-
         // Elixir
 
         m_ex_bitstring: macro_elixir_bitstring {
@@ -185,8 +182,6 @@
             bindings = <&kp DOUBLE_QUOTES &kp HASH &kp LEFT_BRACE &kp RIGHT_BRACE &kp DOUBLE_QUOTES &kp LEFT &kp LEFT>;
         };
 
-
-
         // Game
 
         m_return_gchat_o: macro_return_game_chat_open {
@@ -202,8 +197,6 @@
         };
     };
 };
-
-
 
 / {
     behaviors {
@@ -224,8 +217,6 @@
             flavor = "balanced";
             tapping-term-ms = <HOLD_MS>;
         };
-
-
 
         // Custom mod-morph
 
@@ -271,8 +262,6 @@
             mods = <(MOD_LSFT | MOD_RSFT)>;
         };
 
-
-
         // Custom sticky key
 
         sk_qr: sticky_key_quick_release {
@@ -282,8 +271,6 @@
             release-after-ms = <1000>;
             quick-release;
         };
-
-
 
         // Home row mods
 
@@ -335,8 +322,6 @@
             hold-trigger-on-release;
         };
 
-
-
         // Thumbs
 
         thumb: hold_tap_thumb {
@@ -350,7 +335,32 @@
     };
 };
 
+/ {
+    combos {
+        compatible = "zmk,combos";
 
+        combo_to_base_layer {
+            key-positions = <12 23>;
+            bindings = <&to BASE>;
+            timeout-ms = <COMBO_TAP_MS>;
+            require-prior-idle-ms = <PRIOR_MS>;
+        };
+
+        combo_to_plain_layer {
+            key-positions = <0 11>;
+            bindings = <&to PLAIN>;
+            timeout-ms = <COMBO_TAP_MS>;
+            require-prior-idle-ms = <PRIOR_MS>;
+        };
+
+        combo_to_game_layer {
+            key-positions = <24 35>;
+            bindings = <&to GAME>;
+            timeout-ms = <COMBO_TAP_MS>;
+            require-prior-idle-ms = <PRIOR_MS>;
+        };
+    };
+};
 
 // Keymap template
 //         template_layer {
@@ -648,8 +658,6 @@
         };
     };
 };
-
-
 
 / {
     conditional_layers {
