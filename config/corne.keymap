@@ -641,12 +641,12 @@
             display-name = "Keysys";
 // -----------------------------------------------------------------------------------
 // |  BLD | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | BLD  |
-// |  ULC | ___ | ___ | GAM | BAS | ___ |       | ___ | BAS | GAM | ___ | ___ | ULC  |
+// |  ULC | ___ | GAM | PLN | BAS | ___ |       | ___ | BAS | PLN | GAM | ___ | ULC  |
 // |  RES | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | RES  |
 //                    | ___ | ___ | ___ |       | ___ | ___ | ___ |
             bindings = <
 &bootloader            &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &bootloader
-&studio_unlock         &trans                 &trans                 &to GAME               &to BASE               &trans                           &trans                 &to BASE               &to GAME               &trans                 &trans                 &studio_unlock
+&studio_unlock         &trans                 &to GAME               &to PLAIN              &to BASE               &trans                           &trans                 &to BASE               &to PLAIN              &to GAME               &trans                 &studio_unlock
 &sys_reset             &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &sys_reset
                                                                      &trans                 &trans                 &trans                           &trans                 &trans                 &trans
             >;
