@@ -64,6 +64,15 @@
 #define INDEX_HOLD_MS 185
 #define INDEX_PRIOR_MS 91
 
+#define ZMK_HOLD_TAP(name, ...) \
+	name { \
+        compatible = "zmk,behavior-hold-tap"; \
+        #binding-cells = <2>; \
+        flavor = "balanced"; \
+        tapping-term-ms = <HOLD_MS>; \
+		__VA_ARGS__ \
+	};
+
 / {
     macros {
         m_parens: ZMK_MACRO(macro_parentheses,
@@ -164,21 +173,13 @@
     behaviors {
         // Custom hold-tap
 
-        c_lt: custom_layer_tap {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
+        c_lt: ZMK_HOLD_TAP(custom_layer_tap,
             bindings = <&mo>, <&kp>;
-            flavor = "balanced";
-            tapping-term-ms = <HOLD_MS>;
-        };
+        )
 
-        lt_cw: layer_tap_caps_word {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
+        lt_cw: ZMK_HOLD_TAP(layer_tap_caps_word,
             bindings = <&mo>, <&caps_word>;
-            flavor = "balanced";
-            tapping-term-ms = <HOLD_MS>;
-        };
+        )
 
         // Custom mod-morph
 
