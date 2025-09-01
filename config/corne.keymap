@@ -60,6 +60,7 @@
 #define TAP_HOLD_MS 175
 #define COMBO_TAP_MS 51
 #define PRIOR_MS 175
+#define RELEASE_MS 1175
 
 #define INDEX_HOLD_MS 185
 #define INDEX_PRIOR_MS 91
@@ -77,6 +78,15 @@
     name { \
         compatible = "zmk,behavior-mod-morph"; \
         #binding-cells = <0>; \
+		__VA_ARGS__ \
+    };
+
+#define ZMK_STICKY_KEY(name, ...) \
+    name { \
+        compatible = "zmk,behavior-sticky-key"; \
+        #binding-cells = <1>; \
+        bindings = <&kp>; \
+        release-after-ms = <RELEASE_MS>; \
 		__VA_ARGS__ \
     };
 
@@ -222,13 +232,9 @@
 
         // Custom sticky key
 
-        sk_qr: sticky_key_quick_release {
-            compatible = "zmk,behavior-sticky-key";
-            #binding-cells = <1>;
-            bindings = <&kp>;
-            release-after-ms = <1000>;
+        sk_qr: ZMK_STICKY_KEY(sticky_key_quick_release,
             quick-release;
-        };
+        )
 
         // Home row mods
 
