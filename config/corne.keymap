@@ -65,12 +65,12 @@
 #define INDEX_HOLD_MS 185
 #define INDEX_PRIOR_MS 91
 
+// ZMK helpers
+
 #define ZMK_HOLD_TAP(name, ...) \
 	name { \
         compatible = "zmk,behavior-hold-tap"; \
         #binding-cells = <2>; \
-        flavor = "balanced"; \
-        tapping-term-ms = <HOLD_MS>; \
 		__VA_ARGS__ \
 	};
 
@@ -85,15 +85,11 @@
     name { \
         compatible = "zmk,behavior-sticky-key"; \
         #binding-cells = <1>; \
-        bindings = <&kp>; \
-        release-after-ms = <RELEASE_MS>; \
 		__VA_ARGS__ \
     };
 
 #define ZMK_COMBO(name, ...) \
     name { \
-        timeout-ms = <COMBO_TAP_MS>; \
-        require-prior-idle-ms = <PRIOR_MS>; \
         __VA_ARGS__ \
     };
 
@@ -103,17 +99,72 @@
         __VA_ARGS__ \
     };
 
+#define ZMK_CONDITIONAL_LAYER(name, ...) \
+    name { \
+        __VA_ARGS__ \
+    };
+
 #define ZMK_CONDITIONAL_LAYERS(...) \
     conditional_layers { \
         compatible = "zmk,conditional-layers"; \
         __VA_ARGS__ \
     };
 
+// Custom helpers
+
+#define HOLD_TAP(name, HOLD, TAP, ...) \
+    ZMK_HOLD_TAP(name, \
+        bindings = HOLD, TAP; \
+        flavor = "balanced"; \
+        tapping-term-ms = <HOLD_MS>; \
+        __VA_ARGS__ \
+    )
+
+#define HOME_ROW_MOD(name, ...) \
+    ZMK_HOLD_TAP(name, \
+        bindings = <&kp>, <&kp>; \
+        flavor = "balanced"; \
+        hold-trigger-on-release; \
+        __VA_ARGS__ \
+    )
+
+#define THUMB(name) \
+    HOLD_TAP(name, <&mo>, <&kp>, \
+        quick-tap-ms = <TAP_HOLD_MS>; \
+    )
+
+#define MOD_MORPH(name, TAP, MORPHED_TAP, MODS, ...) \
+    ZMK_MOD_MORPH(name, \
+        bindings = TAP, MORPHED_TAP; \
+        mods = MODS; \
+        __VA_ARGS__ \
+    )
+
+#define STICKY_KEY(name, TAP, ...) \
+    ZMK_STICKY_KEY(name, \
+        bindings = TAP; \
+        release-after-ms = <RELEASE_MS>; \
+        __VA_ARGS__ \
+    )
+
+#define STICKY_KEY_QUICK_RELEASE(name, TAP) \
+    STICKY_KEY(name, TAP, \
+        quick-release; \
+    )
+
+#define COMBO(name, KEY_POSITIONS, DISPATCH) \
+    ZMK_COMBO(name, \
+        key-positions = KEY_POSITIONS; \
+        bindings = DISPATCH; \
+        timeout-ms = <COMBO_TAP_MS>; \
+        require-prior-idle-ms = <PRIOR_MS>; \
+    )
+
 #define CONDITIONAL_LAYER(name, IF_LAYERS, THEN_LAYERS) \
-    name { \
+    ZMK_CONDITIONAL_LAYER(name, \
         if-layers = IF_LAYERS; \
         then-layer = THEN_LAYERS; \
-    };
+    )
 
 / {
     macros {
@@ -215,131 +266,61 @@
     behaviors {
         // Custom hold-tap
 
-        c_lt: ZMK_HOLD_TAP(custom_layer_tap,
-            bindings = <&mo>, <&kp>;
-        )
-
-        lt_cw: ZMK_HOLD_TAP(layer_tap_caps_word,
-            bindings = <&mo>, <&caps_word>;
-        )
+        c_lt: HOLD_TAP(custom_lt, <&mo>, <&kp>)
+        lt_cw: HOLD_TAP(lt_caps_word, <&mo>, <&caps_word>)
 
         // Custom mod-morph
 
-        mm_arrows: ZMK_MOD_MORPH(mod_morph_arrows,
-            bindings = <&m_arrow_r>, <&m_arrow_l>;
-            mods = <(MOD_LSFT | MOD_RSFT)>;
-        )
+        #define MACRO_MORPH_MODS <(MOD_LSFT | MOD_RSFT)>
 
-        mm_fat_arrows: ZMK_MOD_MORPH(mod_morph_fat_arrows,
-            bindings = <&m_fat_arrow_r>, <&m_fat_arrow_l>;
-            mods = <(MOD_LSFT | MOD_RSFT)>;
-        )
-
-        mm_tilde_arrows: ZMK_MOD_MORPH(mod_morph_tilde_arrows,
-            bindings = <&m_tilde_arrow_r>, <&m_tilde_arrow_l>;
-            mods = <(MOD_LSFT | MOD_RSFT)>;
-        )
-
-        mm_pipes: ZMK_MOD_MORPH(mod_morph_pipes,
-            bindings = <&m_pipe_r>, <&m_pipe_l>;
-            mods = <(MOD_LSFT | MOD_RSFT)>;
-        )
-
-        mm_chevrons: ZMK_MOD_MORPH(mod_morph_chevrons,
-            bindings = <&m_ex_bitstring>, <&m_chevrons>;
-            mods = <(MOD_LSFT | MOD_RSFT)>;
-        )
-
-        mm_ex_specs: ZMK_MOD_MORPH(mod_morph_elixir_specs,
-            bindings = <&m_ex_spec>, <&m_ex_type>;
-            mods = <(MOD_LSFT | MOD_RSFT)>;
-        )
+        mm_arrows: MOD_MORPH(mm_arrows, <&m_arrow_r>, <&m_arrow_l>, MACRO_MORPH_MODS)
+        mm_fat_arrows: MOD_MORPH(mm_fat_arrows, <&m_fat_arrow_r>, <&m_fat_arrow_l>, MACRO_MORPH_MODS)
+        mm_tilde_arrows: MOD_MORPH(mm_tilde_arrows, <&m_tilde_arrow_r>, <&m_tilde_arrow_l>, MACRO_MORPH_MODS)
+        mm_pipes: MOD_MORPH(mm_pipes, <&m_pipe_r>, <&m_pipe_l>, MACRO_MORPH_MODS)
+        mm_chevrons: MOD_MORPH(mm_chevrons, <&m_ex_bitstring>, <&m_chevrons>, MACRO_MORPH_MODS)
+        mm_ex_specs: MOD_MORPH(mm_elixir_specs, <&m_ex_spec>, <&m_ex_type>, MACRO_MORPH_MODS)
 
         // Custom sticky key
 
-        sk_qr: ZMK_STICKY_KEY(sticky_key_quick_release,
-            quick-release;
-        )
+        sk_qr: STICKY_KEY_QUICK_RELEASE(sk_quick_release, <&kp>)
 
         // Home row mods
 
-        hrm_l: home_row_mod_left {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            bindings = <&kp>, <&kp>;
-            flavor = "balanced";
+        hrm_l: HOME_ROW_MOD(hrm_left,
             tapping-term-ms = <HOLD_MS>;
-            quick-tap-ms = <TAP_HOLD_MS>;
             require-prior-idle-ms = <PRIOR_MS>;
             hold-trigger-key-positions = <RIGHT_HAND>;
-            hold-trigger-on-release;
-        };
+        )
 
-        hrm_li: home_row_mod_left_index {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            bindings = <&kp>, <&kp>;
-            flavor = "balanced";
+        hrm_li: HOME_ROW_MOD(hrm_left_index,
             tapping-term-ms = <INDEX_HOLD_MS>;
-            quick-tap-ms = <TAP_HOLD_MS>;
             require-prior-idle-ms = <INDEX_PRIOR_MS>;
             hold-trigger-key-positions = <RIGHT_HAND>;
-            hold-trigger-on-release;
-        };
+        )
 
-        hrm_r: home_row_mod_right {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            bindings = <&kp>, <&kp>;
-            flavor = "balanced";
+        hrm_r: HOME_ROW_MOD(hrm_right,
             tapping-term-ms = <HOLD_MS>;
-            quick-tap-ms = <TAP_HOLD_MS>;
             require-prior-idle-ms = <PRIOR_MS>;
             hold-trigger-key-positions = <LEFT_HAND>;
-            hold-trigger-on-release;
-        };
+        )
 
-        hrm_ri: home_row_mod_right_index {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            bindings = <&kp>, <&kp>;
-            flavor = "balanced";
+        hrm_ri: HOME_ROW_MOD(hrm_right_index,
             tapping-term-ms = <INDEX_HOLD_MS>;
-            quick-tap-ms = <TAP_HOLD_MS>;
             require-prior-idle-ms = <INDEX_PRIOR_MS>;
             hold-trigger-key-positions = <LEFT_HAND>;
-            hold-trigger-on-release;
-        };
+        )
 
         // Thumbs
 
-        thumb: hold_tap_thumb {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            bindings = <&mo>, <&kp>;
-            flavor = "balanced";
-            tapping-term-ms = <HOLD_MS>;
-            quick-tap-ms = <TAP_HOLD_MS>;
-        };
+        thumb: THUMB(thumb)
     };
 };
 
 / {
     ZMK_COMBOS(
-        ZMK_COMBO(combo_to_base_layer,
-            key-positions = <12 23>;
-            bindings = <&to BASE>;
-        )
-
-        ZMK_COMBO(combo_to_plain_layer,
-            key-positions = <0 11>;
-            bindings = <&to PLAIN>;
-        )
-
-        ZMK_COMBO(combo_to_game_layer,
-            key-positions = <24 35>;
-            bindings = <&to GAME>;
-        )
+        COMBO(combo_to_base_layer, <12 23>, <&to BASE>)
+        COMBO(combo_to_plain_layer, <0 11>, <&to PLAIN>)
+        COMBO(combo_to_game_layer, <24 35>, <&to GAME>)
     )
 };
 
