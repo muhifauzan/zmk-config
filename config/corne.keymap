@@ -73,6 +73,13 @@
 		__VA_ARGS__ \
 	};
 
+#define ZMK_MOD_MORPH(name, ...) \
+    name { \
+        compatible = "zmk,behavior-mod-morph"; \
+        #binding-cells = <0>; \
+		__VA_ARGS__ \
+    };
+
 / {
     macros {
         m_parens: ZMK_MACRO(macro_parentheses,
@@ -183,47 +190,35 @@
 
         // Custom mod-morph
 
-        mm_arrows: mod_morph_arrows {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
+        mm_arrows: ZMK_MOD_MORPH(mod_morph_arrows,
             bindings = <&m_arrow_r>, <&m_arrow_l>;
             mods = <(MOD_LSFT | MOD_RSFT)>;
-        };
+        )
 
-        mm_fat_arrows: mod_morph_fat_arrows {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
+        mm_fat_arrows: ZMK_MOD_MORPH(mod_morph_fat_arrows,
             bindings = <&m_fat_arrow_r>, <&m_fat_arrow_l>;
             mods = <(MOD_LSFT | MOD_RSFT)>;
-        };
+        )
 
-        mm_tilde_arrows: mod_morph_tilde_arrows {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
+        mm_tilde_arrows: ZMK_MOD_MORPH(mod_morph_tilde_arrows,
             bindings = <&m_tilde_arrow_r>, <&m_tilde_arrow_l>;
             mods = <(MOD_LSFT | MOD_RSFT)>;
-        };
+        )
 
-        mm_pipes: mod_morph_pipes {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
+        mm_pipes: ZMK_MOD_MORPH(mod_morph_pipes,
             bindings = <&m_pipe_r>, <&m_pipe_l>;
             mods = <(MOD_LSFT | MOD_RSFT)>;
-        };
+        )
 
-        mm_chevrons: mod_morph_chevrons {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
+        mm_chevrons: ZMK_MOD_MORPH(mod_morph_chevrons,
             bindings = <&m_ex_bitstring>, <&m_chevrons>;
             mods = <(MOD_LSFT | MOD_RSFT)>;
-        };
+        )
 
-        mm_ex_specs: mod_morph_elixir_specs {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
+        mm_ex_specs: ZMK_MOD_MORPH(mod_morph_elixir_specs,
             bindings = <&m_ex_spec>, <&m_ex_type>;
             mods = <(MOD_LSFT | MOD_RSFT)>;
-        };
+        )
 
         // Custom sticky key
 
