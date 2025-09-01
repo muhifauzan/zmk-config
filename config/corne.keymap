@@ -90,6 +90,19 @@
 		__VA_ARGS__ \
     };
 
+#define ZMK_COMBO(name, ...) \
+    name { \
+        timeout-ms = <COMBO_TAP_MS>; \
+        require-prior-idle-ms = <PRIOR_MS>; \
+        __VA_ARGS__ \
+    };
+
+#define ZMK_COMBOS(...) \
+    combos { \
+        compatible = "zmk,combos"; \
+        __VA_ARGS__ \
+    };
+
 / {
     macros {
         m_parens: ZMK_MACRO(macro_parentheses,
@@ -300,30 +313,22 @@
 };
 
 / {
-    combos {
-        compatible = "zmk,combos";
-
-        combo_to_base_layer {
+    ZMK_COMBOS(
+        ZMK_COMBO(combo_to_base_layer,
             key-positions = <12 23>;
             bindings = <&to BASE>;
-            timeout-ms = <COMBO_TAP_MS>;
-            require-prior-idle-ms = <PRIOR_MS>;
-        };
+        )
 
-        combo_to_plain_layer {
+        ZMK_COMBO(combo_to_plain_layer,
             key-positions = <0 11>;
             bindings = <&to PLAIN>;
-            timeout-ms = <COMBO_TAP_MS>;
-            require-prior-idle-ms = <PRIOR_MS>;
-        };
+        )
 
-        combo_to_game_layer {
+        ZMK_COMBO(combo_to_game_layer,
             key-positions = <24 35>;
             bindings = <&to GAME>;
-            timeout-ms = <COMBO_TAP_MS>;
-            require-prior-idle-ms = <PRIOR_MS>;
-        };
-    };
+        )
+    )
 };
 
 // Keymap template
