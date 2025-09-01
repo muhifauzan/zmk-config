@@ -103,6 +103,18 @@
         __VA_ARGS__ \
     };
 
+#define ZMK_CONDITIONAL_LAYERS(...) \
+    conditional_layers { \
+        compatible = "zmk,conditional-layers"; \
+        __VA_ARGS__ \
+    };
+
+#define CONDITIONAL_LAYER(name, IF_LAYERS, THEN_LAYERS) \
+    name { \
+        if-layers = IF_LAYERS; \
+        then-layer = THEN_LAYERS; \
+    };
+
 / {
     macros {
         m_parens: ZMK_MACRO(macro_parentheses,
@@ -629,77 +641,20 @@
 };
 
 / {
-    conditional_layers {
-        compatible = "zmk,conditional-layers";
-
-        plain_layer {
-            if-layers = <PLAIN>;
-            then-layer = <BASE_PLAIN>;
-        };
-
-        alter_layer {
-            if-layers = <ALTER>;
-            then-layer = <BASE_ALTER>;
-        };
-
-        game_layer {
-            if-layers = <GAME>;
-            then-layer = <BASE_PLAIN>;
-        };
-
-        number_layer {
-            if-layers = <NUMBER>;
-            then-layer = <BASE_ALTER>;
-        };
-
-        symbol_layer {
-            if-layers = <SYMBOL>;
-            then-layer = <BASE_ALTER>;
-        };
-
-        navigation_layer {
-            if-layers = <NAVIGATION>;
-            then-layer = <BASE_ALTER>;
-        };
-
-        numpad_layer {
-            if-layers = <ALTER NUMBER>;
-            then-layer = <NUMPAD>;
-        };
-
-        macro_layer {
-            if-layers = <ALTER SYMBOL>;
-            then-layer = <MACRO>;
-        };
-
-        sysutils_layer {
-            if-layers = <NUMBER SYMBOL>;
-            then-layer = <SYSUTILS>;
-        };
-
-        system_layer {
-            if-layers = <NAVIGATION MEDIA>;
-            then-layer = <SYSTEM>;
-        };
-
-        bluetooth_layer {
-            if-layers = <ALTER SYSUTILS>;
-            then-layer = <BLUETOOTH>;
-        };
-
-        keysys_layer_left {
-            if-layers = <ALTER NUMBER NAVIGATION>;
-            then-layer = <KEYSYS>;
-        };
-
-        keysys_layer_right {
-            if-layers = <ALTER SYMBOL MEDIA>;
-            then-layer = <KEYSYS>;
-        };
-
-        sandbox_layer {
-            if-layers = <NUMBER MEDIA>;
-            then-layer = <SANDBOX>;
-        };
-    };
+    ZMK_CONDITIONAL_LAYERS(
+        CONDITIONAL_LAYER(plain_layer, <PLAIN>, <BASE_PLAIN>)
+        CONDITIONAL_LAYER(alter_layer, <ALTER>, <BASE_ALTER>)
+        CONDITIONAL_LAYER(game_layer, <GAME>, <BASE_PLAIN>)
+        CONDITIONAL_LAYER(number_layer, <NUMBER>, <BASE_ALTER>)
+        CONDITIONAL_LAYER(symbol_layer, <SYMBOL>, <BASE_ALTER>)
+        CONDITIONAL_LAYER(navigation_layer, <NAVIGATION>, <BASE_ALTER>)
+        CONDITIONAL_LAYER(numpad_layer, <ALTER NUMBER>, <NUMPAD>)
+        CONDITIONAL_LAYER(macro_layer, <ALTER SYMBOL>, <MACRO>)
+        CONDITIONAL_LAYER(sysutils_layer, <NUMBER SYMBOL>, <SYSUTILS>)
+        CONDITIONAL_LAYER(system_layer, <NAVIGATION MEDIA>, <SYSTEM>)
+        CONDITIONAL_LAYER(bluetooth_layer, <ALTER SYSUTILS>, <BLUETOOTH>)
+        CONDITIONAL_LAYER(keysys_layer_left, <ALTER NUMBER NAVIGATION>, <KEYSYS>)
+        CONDITIONAL_LAYER(keysys_layer_right, <ALTER SYMBOL MEDIA>, <KEYSYS>)
+        CONDITIONAL_LAYER(sandbox_layer, <NUMBER MEDIA>, <SANDBOX>)
+    )
 };
