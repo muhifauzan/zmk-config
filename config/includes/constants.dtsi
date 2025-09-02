@@ -1,0 +1,146 @@
+#ifndef ZMKCFG_CONSTANTS_DTSI
+#define ZMKCFG_CONSTANTS_DTSI
+
+/* Keys */
+
+//  Left half                                      Right half
+// ───────────────────────────────────────────────────────────
+//    0   1   2   3   4   5     |       6   7   8   9  10  11
+//   12  13  14  15  16  17     |      18  19  20  21  22  23
+//   24  25  26  27  28  29     |      30  31  32  33  34  35
+//                 36   37   38 |  39   40   41
+
+//  Left half                                      Right half
+// ───────────────────────────────────────────────────────────
+//  LA1 LL1 LR1 LM1 LI1 LN1     |     RN1 RI1 RM1 RR1 RL1 RA1
+//  LA2 LL2 LR2 LM2 LI2 LN2     |     RN2 RI2 RM2 RR2 RL2 RA2
+//  LA3 LL3 LR3 LM3 LI3 LN3     |     RN3 RI3 RM3 RR3 RL3 RA3
+//                LT3  LT2  LT1 | RT1  RT2  RT3
+
+// Legend:
+// Rows: 1 = top, 2 = home, 3 = bottom
+// A = auxiliary (outermost), L = little, R = ring, M = middle,
+// I = index, N = innermost (index)
+// Thumbs: T1 = innermost, T2 = middle, T3 = outermost
+
+/* Left rows */
+
+#define LA1  0
+#define LL1  1
+#define LR1  2
+#define LM1  3
+#define LI1  4
+#define LN1  5
+
+#define LA2 12
+#define LL2 13
+#define LR2 14
+#define LM2 15
+#define LI2 16
+#define LN2 17
+
+#define LA3 24
+#define LL3 25
+#define LR3 26
+#define LM3 27
+#define LI3 28
+#define LN3 29
+
+/* Right rows */
+
+#define RN1  6
+#define RI1  7
+#define RM1  8
+#define RR1  9
+#define RL1 10
+#define RA1 11
+
+#define RN2 18
+#define RI2 19
+#define RM2 20
+#define RR2 21
+#define RL2 22
+#define RA2 23
+
+#define RN3 30
+#define RI3 31
+#define RM3 32
+#define RR3 33
+#define RL3 34
+#define RA3 35
+
+/* Thumbs */
+
+#define LT3 36
+#define LT2 37
+#define LT1 38
+
+#define RT1 39
+#define RT2 40
+#define RT3 41
+
+/* Groups */
+
+#define LEFT_KEYS     LA1 LL1 LR1 LM1 LI1 LN1 LA2 LL2 LR2 LM2 LI2 LN2 LA3 LL3 LR3 LM3 LI3 LN3
+#define RIGHT_KEYS    RN1 RI1 RM1 RR1 RL1 RA1 RN2 RI2 RM2 RR2 RL2 RA2 RN3 RI3 RM3 RR3 RL3 RA3
+
+#define LEFT_THUMBS   LT3 LT2 LT1
+#define RIGHT_THUMBS  RT1 RT2 RT3
+
+#define LEFT_HAND     LEFT_KEYS  LEFT_THUMBS
+#define RIGHT_HAND    RIGHT_KEYS RIGHT_THUMBS
+
+/* Layers */
+
+#define BASE        0
+#define GAME_CHAT   1
+#define BASE_PLAIN  2
+#define BASE_ALTER  3
+#define PLAIN       4
+#define ALTER       5
+#define GAME        6
+#define GAME_UTILS  7
+#define NUMBER      8
+#define SYMBOL      9
+#define NAVIGATION 10
+#define MEDIA      11
+#define NUMPAD     12
+#define MACRO      13
+#define SYSUTILS   14
+#define SYSTEM     15
+#define BLUETOOTH  16
+#define KEYSYS     17
+#define SANDBOX    18
+
+#define GCHAT      GAME_CHAT
+#define BPLN       BASE_PLAIN
+#define BALT       BASE_ALTER
+#define GUTLS      GAME_UTILS
+#define NUM        NUMBER
+#define SYM        SYMBOL
+#define NAV        NAVIGATION
+#define NUMP       NUMPAD
+#define UTILS      SYSUTILS
+#define SYS        SYSTEM
+#define BT         BLUETOOTH
+#define KSYS       KEYSYS
+#define SBX        SANDBOX
+
+/* Timing */
+
+#define HOLD_MS         275
+#define TAP_HOLD_MS     175
+#define COMBO_TAP_MS     51
+
+#define PRIOR_MS        175
+#define RELEASE_MS     1175
+
+#define INDEX_HOLD_MS   185
+#define INDEX_PRIOR_MS   91
+
+/* Other */
+
+#define MACRO_MORPH_MODS <(MOD_LSFT | MOD_RSFT)>
+
+/* ZMKCFG_CONSTANTS_DTSI */
+#endif

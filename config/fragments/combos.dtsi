@@ -1,0 +1,7 @@
+/ {
+    ZMK_COMBOS(
+        COMBO(combo_to_base_layer, <LA2 RA2>, <&to BASE>)
+        COMBO(combo_to_plain_layer, <LA1 RA1>, <&to PLAIN>)
+        COMBO(combo_to_game_layer, <LA3 RA3>, <&to GAME>)
+    )
+};

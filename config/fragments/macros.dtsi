@@ -1,0 +1,97 @@
+/ {
+    macros {
+        /* Symbols */
+
+        m_parens: ZMK_MACRO(macro_parentheses,
+            bindings = <&kp LEFT_PARENTHESIS &kp RIGHT_PARENTHESIS &kp LEFT>;
+        )
+
+        m_brackets: ZMK_MACRO(macro_brackets,
+            bindings = <&kp LEFT_BRACKET &kp RIGHT_BRACKET &kp LEFT>;
+        )
+
+        m_braces: ZMK_MACRO(macro_braces,
+            bindings = <&kp LEFT_BRACE &kp RIGHT_BRACE &kp LEFT>;
+        )
+
+        m_chevrons: ZMK_MACRO(macro_angle_brackets,
+            bindings = <&kp LESS_THAN &kp GREATER_THAN &kp LEFT>;
+        )
+
+        m_arrow_r: ZMK_MACRO(macro_arrow_right,
+            bindings = <&kp MINUS &kp GREATER_THAN &kp SPACE>;
+        )
+
+        m_arrow_l: ZMK_MACRO(macro_arrow_left,
+            bindings = <&kp LESS_THAN &kp MINUS &kp SPACE>;
+        )
+
+        m_fat_arrow_r: ZMK_MACRO(macro_fat_arrow_right,
+            bindings = <&kp EQUAL &kp GREATER_THAN &kp SPACE>;
+        )
+
+        m_fat_arrow_l: ZMK_MACRO(macro_fat_arrow_left,
+            bindings = <&kp LESS_THAN &kp EQUAL &kp SPACE>;
+        )
+
+        m_tilde_arrow_r: ZMK_MACRO(macro_tilde_arrow_right,
+            bindings = <&kp TILDE &kp GREATER_THAN &kp SPACE>;
+        )
+
+        m_tilde_arrow_l: ZMK_MACRO(macro_tilde_arrow_left,
+            bindings = <&kp LESS_THAN &kp TILDE &kp SPACE>;
+        )
+
+        m_pipe_r: ZMK_MACRO(macro_pipe_right,
+            bindings = <&kp PIPE &kp GREATER_THAN &kp SPACE>;
+        )
+
+        m_pipe_l: ZMK_MACRO(macro_pipe_left,
+            bindings = <&kp LESS_THAN &kp PIPE &kp SPACE>;
+        )
+
+        /* Elixir */
+
+        m_ex_bitstring: ZMK_MACRO(macro_elixir_bitstring,
+            bindings = <&kp LESS_THAN &kp LESS_THAN &kp GREATER_THAN &kp GREATER_THAN &kp LEFT &kp LEFT>;
+        )
+
+        m_ex_type_delim: ZMK_MACRO(macro_elixir_type_delimiter,
+            bindings = <&kp COLON &kp COLON &kp SPACE>;
+        )
+
+        m_ex_spec: ZMK_MACRO(macro_elixir_spec,
+            bindings = <&kp AT_SIGN &kp S &kp P &kp E &kp C &kp SPACE>;
+        )
+
+        m_ex_type: ZMK_MACRO(macro_elixir_type,
+            bindings = <&kp AT_SIGN &kp T &kp Y &kp P &kp E &kp SPACE>;
+        )
+
+        m_ex_map: ZMK_MACRO(macro_elixir_map,
+            bindings = <&kp PERCENT &kp LEFT_BRACE &kp RIGHT_BRACE &kp LEFT>;
+        )
+
+        m_ex_interp: ZMK_MACRO(macro_elixir_interpolation,
+            bindings = <&kp HASH &kp LEFT_BRACE &kp RIGHT_BRACE &kp LEFT>;
+        )
+
+        m_ex_full_interp: ZMK_MACRO(macro_elixir_full_interpolation,
+            bindings = <&kp DOUBLE_QUOTES &kp HASH &kp LEFT_BRACE &kp RIGHT_BRACE &kp DOUBLE_QUOTES &kp LEFT &kp LEFT>;
+        )
+
+        /* Game */
+
+        m_tap_gchat_o: macro_tap_game_chat_open {
+          compatible = "zmk,behavior-macro-one-param";
+          #binding-cells = <1>;
+          bindings = <&macro_param_1to1>, <&kp MACRO_PLACEHOLDER &to GAME_CHAT>;
+        };
+
+        m_tap_gchat_c: macro_tap_game_chat_close {
+          compatible = "zmk,behavior-macro-one-param";
+          #binding-cells = <1>;
+          bindings = <&macro_param_1to1>, <&kp MACRO_PLACEHOLDER &to GAME>;
+        };
+    };
+};

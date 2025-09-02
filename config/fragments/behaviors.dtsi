@@ -1,0 +1,51 @@
+/ {
+    behaviors {
+        /* Custom hold-tap */
+
+        c_lt: HOLD_TAP(custom_lt, <&mo>, <&kp>)
+        lt_cw: HOLD_TAP(lt_caps_word, <&mo>, <&caps_word>)
+
+        /* Custom mod-morph */
+
+        mm_arrows: MOD_MORPH(mm_arrows, <&m_arrow_r>, <&m_arrow_l>, MACRO_MORPH_MODS)
+        mm_fat_arrows: MOD_MORPH(mm_fat_arrows, <&m_fat_arrow_r>, <&m_fat_arrow_l>, MACRO_MORPH_MODS)
+        mm_tilde_arrows: MOD_MORPH(mm_tilde_arrows, <&m_tilde_arrow_r>, <&m_tilde_arrow_l>, MACRO_MORPH_MODS)
+        mm_pipes: MOD_MORPH(mm_pipes, <&m_pipe_r>, <&m_pipe_l>, MACRO_MORPH_MODS)
+        mm_chevrons: MOD_MORPH(mm_chevrons, <&m_ex_bitstring>, <&m_chevrons>, MACRO_MORPH_MODS)
+        mm_ex_specs: MOD_MORPH(mm_elixir_specs, <&m_ex_spec>, <&m_ex_type>, MACRO_MORPH_MODS)
+
+        /* Custom sticky key */
+
+        sk_qr: STICKY_KEY_QUICK_RELEASE(sk_quick_release, <&kp>)
+
+        /* Home row mod */
+
+        hrm_l: HOME_ROW_MOD(hrm_left,
+            tapping-term-ms = <HOLD_MS>;
+            require-prior-idle-ms = <PRIOR_MS>;
+            hold-trigger-key-positions = <RIGHT_HAND>;
+        )
+
+        hrm_li: HOME_ROW_MOD(hrm_left_index,
+            tapping-term-ms = <INDEX_HOLD_MS>;
+            require-prior-idle-ms = <INDEX_PRIOR_MS>;
+            hold-trigger-key-positions = <RIGHT_HAND>;
+        )
+
+        hrm_r: HOME_ROW_MOD(hrm_right,
+            tapping-term-ms = <HOLD_MS>;
+            require-prior-idle-ms = <PRIOR_MS>;
+            hold-trigger-key-positions = <LEFT_HAND>;
+        )
+
+        hrm_ri: HOME_ROW_MOD(hrm_right_index,
+            tapping-term-ms = <INDEX_HOLD_MS>;
+            require-prior-idle-ms = <INDEX_PRIOR_MS>;
+            hold-trigger-key-positions = <LEFT_HAND>;
+        )
+
+        /* Thumb */
+
+        thumb: THUMB(thumb)
+    };
+};

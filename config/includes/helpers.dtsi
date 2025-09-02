@@ -1,0 +1,106 @@
+#ifndef ZMKCFG_HELPERS_DTSI
+#define ZMKCFG_HELPERS_DTSI
+
+/* ZMK helpers */
+
+#define ZMK_HOLD_TAP(name, ...) \
+	name { \
+        compatible = "zmk,behavior-hold-tap"; \
+        #binding-cells = <2>; \
+		__VA_ARGS__ \
+	};
+
+#define ZMK_MOD_MORPH(name, ...) \
+    name { \
+        compatible = "zmk,behavior-mod-morph"; \
+        #binding-cells = <0>; \
+		__VA_ARGS__ \
+    };
+
+#define ZMK_STICKY_KEY(name, ...) \
+    name { \
+        compatible = "zmk,behavior-sticky-key"; \
+        #binding-cells = <1>; \
+		__VA_ARGS__ \
+    };
+
+#define ZMK_COMBO(name, ...) \
+    name { \
+        __VA_ARGS__ \
+    };
+
+#define ZMK_COMBOS(...) \
+    combos { \
+        compatible = "zmk,combos"; \
+        __VA_ARGS__ \
+    };
+
+#define ZMK_CONDITIONAL_LAYER(name, ...) \
+    name { \
+        __VA_ARGS__ \
+    };
+
+#define ZMK_CONDITIONAL_LAYERS(...) \
+    conditional_layers { \
+        compatible = "zmk,conditional-layers"; \
+        __VA_ARGS__ \
+    };
+
+/* Custom helpers */
+
+#define HOLD_TAP(name, HOLD, TAP, ...) \
+    ZMK_HOLD_TAP(name, \
+        bindings = HOLD, TAP; \
+        flavor = "balanced"; \
+        tapping-term-ms = <HOLD_MS>; \
+        __VA_ARGS__ \
+    )
+
+#define HOME_ROW_MOD(name, ...) \
+    ZMK_HOLD_TAP(name, \
+        bindings = <&kp>, <&kp>; \
+        flavor = "balanced"; \
+        hold-trigger-on-release; \
+        __VA_ARGS__ \
+    )
+
+#define THUMB(name) \
+    HOLD_TAP(name, <&mo>, <&kp>, \
+        quick-tap-ms = <TAP_HOLD_MS>; \
+    )
+
+#define MOD_MORPH(name, TAP, MORPHED_TAP, MODS, ...) \
+    ZMK_MOD_MORPH(name, \
+        bindings = TAP, MORPHED_TAP; \
+        mods = MODS; \
+        __VA_ARGS__ \
+    )
+
+#define STICKY_KEY(name, TAP, ...) \
+    ZMK_STICKY_KEY(name, \
+        bindings = TAP; \
+        release-after-ms = <RELEASE_MS>; \
+        __VA_ARGS__ \
+    )
+
+#define STICKY_KEY_QUICK_RELEASE(name, TAP) \
+    STICKY_KEY(name, TAP, \
+        quick-release; \
+    )
+
+#define COMBO(name, KEY_POSITIONS, DISPATCH) \
+    ZMK_COMBO(name, \
+        key-positions = KEY_POSITIONS; \
+        bindings = DISPATCH; \
+        timeout-ms = <COMBO_TAP_MS>; \
+        require-prior-idle-ms = <PRIOR_MS>; \
+    )
+
+#define CONDITIONAL_LAYER(name, IF_LAYERS, THEN_LAYERS) \
+    ZMK_CONDITIONAL_LAYER(name, \
+        if-layers = IF_LAYERS; \
+        then-layer = THEN_LAYERS; \
+    )
+
+/* ZMKCFG_HELPERS_DTSI */
+#endif
