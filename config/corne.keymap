@@ -57,12 +57,12 @@
 // |  ___ | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ___  |
 // |  ___ | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ___  |
 // |  ___ | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | GAME |
-//                    | ESC | ___ | ___ |       | RET | ___ | ESC |
+//                    | ___ | ___ | ___ |       | RET | ___ | ESC |
             bindings = <
 &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
 &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
 &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &to GAME
-                                                                     &m_tap_gchat_c ESCAPE  &trans                 &trans                           &m_tap_gchat_c RETURN  &trans                 &m_tap_gchat_c ESCAPE
+                                                                     &trans                 &trans                 &trans                           &m_tap_gchat_c RETURN  &trans                 &m_tap_gchat_c ESCAPE
             >;
         };
 
