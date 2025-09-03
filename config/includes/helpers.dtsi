@@ -3,6 +3,13 @@
 
 /* ZMK helpers */
 
+#define ZMK_MACRO_1(name, ...) \
+    name { \
+        compatible = "zmk,behavior-macro-one-param"; \
+        #binding-cells = <1>; \
+		__VA_ARGS__ \
+    };
+
 #define ZMK_HOLD_TAP(name, ...) \
 	name { \
         compatible = "zmk,behavior-hold-tap"; \
@@ -47,6 +54,18 @@
     };
 
 /* Custom helpers */
+
+#define MACRO_0(name, DISPATCH, ...) \
+    ZMK_MACRO(name, \
+        bindings = DISPATCH; \
+        __VA_ARGS__ \
+    )
+
+#define MACRO_1(name, DISPATCH, ...) \
+    ZMK_MACRO_1(name, \
+        bindings = <&macro_param_1to1>, DISPATCH; \
+        __VA_ARGS__ \
+    )
 
 #define HOLD_TAP(name, HOLD, TAP, ...) \
     ZMK_HOLD_TAP(name, \
