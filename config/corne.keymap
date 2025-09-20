@@ -189,14 +189,14 @@
         navigation_layer {
             display-name = "Nav";
 // -----------------------------------------------------------------------------------
-// |  ___ | ___ | T ← | ___ | ___ | T → |       | HOM | PDN | PUP | END | ___ | CMN  |
-// |  ___ | ___ | ___ | ___ | ___ | ___ |       |  ←  |  ↓  |  ↑  |  →  | GUI | ___  |
-// |  ___ | ___ | ___ | ___ | ___ | ___ |       | W ← | W ↓ | W ↑ | W → | ___ | ___  |
+// |  A-> | Qut | Cls | ___ | ___ | ___ |       | HOM | PDN | PUP | END | ___ | CMN  |
+// |  C-> | ___ | T ← | ___ | ___ | T → |       |  ←  |  ↓  |  ↑  |  →  | GUI | ___  |
+// |  G-> | ___ | ___ | ___ | ___ | ___ |       | W ← | W ↓ | W ↑ | W → | ___ | ___  |
 //                    | ___ | ___ | ___ |       | ___ | ___ | ___ |
             bindings = <
-&trans                 &trans                 &kp LC(PAGE_UP)        &trans                 &trans                 &kp LC(PAGE_DOWN)                &kp HOME               &kp PAGE_DOWN          &kp PAGE_UP            &kp END                &trans                 &kp K_CONTEXT_MENU
-&trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &kp LEFT               &kp DOWN               &kp UP                 &kp RIGHT              &kp RIGHT_GUI          &trans
-&trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &kp LC(LEFT)           &kp LC(END)            &kp LC(HOME)           &kp LC(RIGHT)          &trans                 &trans
+&kp RA(TAB)            &kp RC(Q)              &kp RC(W)              &trans                 &trans                 &trans                           &kp HOME               &kp PAGE_DOWN          &kp PAGE_UP            &kp END                &trans                 &kp K_CONTEXT_MENU
+&kp RC(TAB)            &trans                 &tt 0 LC(PAGE_UP)      &trans                 &trans                 &tt 0 LC(PAGE_DOWN)              &kp LEFT               &kp DOWN               &kp UP                 &kp RIGHT              &kp RIGHT_GUI          &trans
+&kp RG(TAB)            &trans                 &trans                 &trans                 &trans                 &trans                           &kp LC(LEFT)           &kp LC(END)            &kp LC(HOME)           &kp LC(RIGHT)          &trans                 &trans
                                                                      &trans                 &trans                 &trans                           &trans                 &trans                 &trans
             >;
         };

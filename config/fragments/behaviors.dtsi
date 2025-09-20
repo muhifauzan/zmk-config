@@ -2,6 +2,8 @@
     behaviors {
         /* Custom hold-tap */
 
+        tt: HOLD_TAP(trans_tap, <&trans>, <&kp>)
+
         c_lt: HOLD_TAP(custom_lt, <&mo>, <&kp>)
         lt_cw: HOLD_TAP(lt_caps_word, <&mo>, <&caps_word>)
 
