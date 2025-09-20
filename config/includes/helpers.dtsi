@@ -80,6 +80,7 @@
         bindings = <&kp>, <&kp>; \
         flavor = "balanced"; \
         hold-trigger-on-release; \
+        quick-tap-ms = <TAP_HOLD_MS>; \
         __VA_ARGS__ \
     )
 
