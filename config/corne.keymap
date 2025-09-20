@@ -250,12 +250,12 @@
             display-name = "Sysutils";
 // -----------------------------------------------------------------------------------
 // |  ___ | ___ | ___ | ___ | ___ | ___ |       | F12 | F7  | F8  | F9  | ___ | PBR  |
-// |  CAP | ___ | ___ | ___ | ___ | ___ |       | F11 | F4  | F5  | F6  | ___ | PSC  |
+// |  CAP | GUI | ALT | CTL | SFT | ___ |       | F11 | F4  | F5  | F6  | ___ | PSC  |
 // |  ___ | ___ | ___ | ___ | ___ | ___ |       | F10 | F1  | F2  | F3  | ___ | SLC  |
 //                    | ___ | ___ | ___ |       | ___ | ___ | ___ |
             bindings = <
 &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &kp F12                &kp F7                 &kp F8                 &kp F9                 &trans                 &kp PAUSE_BREAK
-&kp CAPSLOCK           &trans                 &trans                 &trans                 &trans                 &trans                           &kp F11                &kp F4                 &kp F5                 &kp F6                 &trans                 &kp PRINTSCREEN
+&kp CAPSLOCK           &kp LEFT_GUI           &kp LEFT_ALT           &kp LEFT_CONTROL       &kp LEFT_SHIFT         &trans                           &kp F11                &kp F4                 &kp F5                 &kp F6                 &trans                 &kp PRINTSCREEN
 &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &kp F10                &kp F1                 &kp F2                 &kp F3                 &trans                 &kp SCROLLLOCK
                                                                      &trans                 &trans                 &trans                           &trans                 &trans                 &trans
             >;
