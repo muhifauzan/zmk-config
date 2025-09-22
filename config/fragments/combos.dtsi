@@ -3,5 +3,11 @@
         COMBO(combo_to_base_layer, <LA2 RA2>, <&to BASE>)
         COMBO(combo_to_plain_layer, <LA1 RA1>, <&to PLAIN>)
         COMBO(combo_to_game_layer, <LA3 RA3>, <&to GAME>)
+        COMBO(combo_to_base_layer_l, <LA2 LL2>, <&to BASE>)
+        COMBO(combo_to_plain_layer_l, <LA1 LL1>, <&to PLAIN>)
+        COMBO(combo_to_game_layer_l, <LA3 LL3>, <&to GAME>)
+        COMBO(combo_mute, <LI1 LN1>, <&kp C_MUTE>)
+        COMBO(combo_play_pause, <LI2 LN2>, <&kp C_PLAY_PAUSE>)
+        COMBO(combo_lock, <LI3 LN3>, <&kp C_AL_LOCK>)
     )
 };
