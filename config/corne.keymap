@@ -84,12 +84,12 @@
         base_alter_layer {
             display-name = "B Alter";
 // -----------------------------------------------------------------------------------
-// |  ESC | ___ | ___ | ___ | ___ | ___ |       | UND | ___ | ___ | RED | ___ | ESC  |
+// |  ESC | QUT | CLS | RTB | REF | NTB |       | UND | ___ | ___ | RED | ___ | ESC  |
 // |  ___ | GUI | ALT | CTL | SFT | DEL |       | BSP | INS | TAB | DEL | GUI | ___  |
 // |  ___ | ___ | ___ | ___ | ___ | ___ |       | ___ | ___ | ___ | ___ | ___ | ___  |
 //                    | ___ | ___ | ___ |       | ___ | ___ | ___ |
             bindings = <
-&kp ESCAPE             &trans                 &trans                 &trans                 &trans                 &trans                           &kp RC(Z)              &trans                 &trans                 &kp LC(Y)              &trans                 &kp ESCAPE
+&kp ESCAPE             &kp RC(Q)              &kp RC(W)              &kp RS(RC(T))          &kp C_AC_REFRESH       &kp RC(T)                        &kp RC(Z)              &trans                 &trans                 &kp LC(Y)              &trans                 &kp ESCAPE
 &trans                 &kp LEFT_GUI           &kp LEFT_ALT           &kp LEFT_CONTROL       &kp LEFT_SHIFT         &kp DELETE                       &kp BACKSPACE          &hrm_ri RSHFT INSERT   &hrm_r RCTRL TAB       &hrm_r RALT DELETE     &kp RIGHT_GUI          &trans
 &trans                 &trans                 &trans                 &trans                 &trans                 &trans                           &trans                 &trans                 &trans                 &trans                 &trans                 &trans
                                                                      &trans                 &trans                 &trans                           &trans                 &trans                 &trans
@@ -189,12 +189,12 @@
         navigation_layer {
             display-name = "Nav";
 // -----------------------------------------------------------------------------------
-// |  A → | QUT | CLS | ___ | ___ | ___ |       | HOM | PDN | PUP | END | ___ | CMN  |
+// |  A → | ___ | ___ | ___ | ___ | ___ |       | HOM | PDN | PUP | END | ___ | CMN  |
 // |  C → | ___ | T ← | ___ | ___ | T → |       |  ←  |  ↓  |  ↑  |  →  | GUI | ___  |
 // |  G → | ___ | ___ | ___ | ___ | ___ |       | W ← | W ↓ | W ↑ | W → | ___ | ___  |
 //                    | ___ | ___ | ___ |       | ___ | ___ | ___ |
             bindings = <
-&kp RA(TAB)            &kp RC(Q)              &kp RC(W)              &trans                 &trans                 &trans                           &kp HOME               &kp PAGE_DOWN          &kp PAGE_UP            &kp END                &trans                 &kp K_CONTEXT_MENU
+&kp RA(TAB)            &trans                 &trans                 &trans                 &trans                 &trans                           &kp HOME               &kp PAGE_DOWN          &kp PAGE_UP            &kp END                &trans                 &kp K_CONTEXT_MENU
 &kp RC(TAB)            &trans                 &tt 0 LC(PAGE_UP)      &trans                 &trans                 &tt 0 LC(PAGE_DOWN)              &kp LEFT               &kp DOWN               &kp UP                 &kp RIGHT              &kp RIGHT_GUI          &trans
 &kp RG(TAB)            &trans                 &trans                 &trans                 &trans                 &trans                           &kp LC(LEFT)           &kp LC(END)            &kp LC(HOME)           &kp LC(RIGHT)          &trans                 &trans
                                                                      &trans                 &trans                 &trans                           &trans                 &trans                 &trans
